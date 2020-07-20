@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1020784071734",
+    "firebase_url": "https://protectpetapp.firebaseio.com",
+    "project_id": "protectpetapp",
+    "storage_bucket": "protectpetapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020784071734:android:07d666f17f07bf7f38f497",
+        "android_client_info": {
+          "package_name": "com.project.protectpetapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020784071734-6gumoinrng7pu9bjm6kbp3d4658lu3ak.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.protectpetapp",
+            "certificate_hash": "b5989cd2536856f6e0475ec6ebaebeb66bf51bba"
+          }
+        },
+        {
+          "client_id": "1020784071734-tha2o0fmrcu610vbojtnlm48iocbqhml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2-Cm22w8eoG1JFSaXnf5aQlctxqj4L3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020784071734-tha2o0fmrcu610vbojtnlm48iocbqhml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
