@@ -71,7 +71,6 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 count++;
-
                 if(count<3){
                     firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -84,15 +83,11 @@ public class LoginActivity extends AppCompatActivity{
 
                                 //자동로그인 체크여부
                                 if(auto_login.isChecked()){
-
-
                                 }else{
-
                                 }
 
                                 finish();
                             } else {
-
                                 Toast.makeText(LoginActivity.this, "잘못된 이메일 또는 비밀번호입니다.", Toast.LENGTH_SHORT).show();
                             }
 
