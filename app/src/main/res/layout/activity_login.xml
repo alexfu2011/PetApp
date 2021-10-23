@@ -6,64 +6,51 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="556dp"
+            android:layout_marginBottom="20dp"
             android:text="로그인"
             android:textColor="#2E2E2E"
             android:textSize="30dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
             android:text="이메일"
             android:textColor="#2E2E2E"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/login_email"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.534"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="1.0" />
+            android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/login_email"
+            android:id="@+id/edit_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="56dp"
             android:backgroundTint="#A3A3A3"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:inputType="textEmailAddress" />
 
         <TextView
             android:id="@+id/textView2"
@@ -73,26 +60,15 @@
             android:layout_marginTop="10dp"
             android:text="비밀번호"
             android:textColor="#2E2E2E"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_email"
-            app:layout_constraintVertical_bias="0.0" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/login_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
             android:backgroundTint="#A3A3A3"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            android:inputType="textPassword" />
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/auto_login"
@@ -100,11 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="자동 로그인"
-            android:textColor="#585858"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_pw" />
+            android:textColor="#585858" />
 
         <Button
             android:id="@+id/search_pw"
@@ -115,13 +87,7 @@
             android:background="#00ff0000"
             android:gravity="center"
             android:text="비밀번호를 잊으셨나요?"
-            android:textColor="#585858"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sign"
-            app:layout_constraintVertical_bias="0.0" />
+            android:textColor="#585858" />
 
         <Button
             android:id="@+id/login"
@@ -131,10 +97,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/btn_enabled_bg"
             android:gravity="center"
-            android:text="로그인"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/auto_login" />
+            android:text="로그인" />
 
         <Button
             android:id="@+id/sign"
@@ -144,11 +107,8 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/btn_abled_bg"
             android:gravity="center"
-            android:text="회원가입"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login" />
+            android:text="회원가입" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

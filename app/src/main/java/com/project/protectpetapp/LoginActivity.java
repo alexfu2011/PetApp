@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity{
         //파이어베이스 접근 설정
         firebaseAuth = FirebaseAuth.getInstance();
 
-        login_email = (EditText) findViewById(R.id.login_email);
+        login_email = (EditText) findViewById(R.id.edit_email);
         login_pw = (EditText) findViewById(R.id.login_pw);
         login = (Button) findViewById(R.id.login);
         sign = (Button) findViewById(R.id.sign);
