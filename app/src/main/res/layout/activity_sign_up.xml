@@ -23,6 +23,15 @@
         android:textStyle="bold"
         android:textColor="#2E2E2E"/>
 
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:text="이름"
+        android:textColor="#2E2E2E"
+        android:textStyle="bold"/>
+
 
     <EditText
         android:layout_width="360dp"
@@ -34,6 +43,14 @@
         android:backgroundTint="#FA5882"
         android:textSize="20dp"/>
 
+    <TextView
+        android:id="@+id/text_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:text="이메일"
+        android:textColor="#2E2E2E"
+        android:textStyle="bold"/>
 
     <EditText
         android:layout_width="360dp"
@@ -78,7 +95,7 @@
         android:layout_height="wrap_content"
         android:text="회원가입"
         android:layout_marginTop="60dp"
-        android:background="#FA5882"
+        android:background="@drawable/btn_enabled_bg"
         android:gravity="center"
         android:layout_gravity="center"
         android:id="@+id/signup"/>
