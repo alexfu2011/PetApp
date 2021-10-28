@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    tools:context=".PwSearch_Activity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -33,7 +32,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="*가입된 정보를 정확히 입력해주세요."
+            android:text="가입한 이메일을 정확히 입력해주세요."
             android:textColor="#000000"
             android:layout_marginBottom="10sp"
             android:gravity="center"/>

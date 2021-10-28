@@ -111,10 +111,6 @@ public class LoginActivity extends AppCompatActivity{
         });
 
 
-
-
-
-
         //회원가입 버튼
         sign.setOnClickListener(new View.OnClickListener() {
             @Override

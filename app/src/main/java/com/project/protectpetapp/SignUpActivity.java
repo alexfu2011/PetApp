@@ -2,11 +2,15 @@ package com.project.protectpetapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,8 +31,10 @@ public class SignUpActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
 
     private EditText sign_name, sign_email, sign_pw, sign_pwck;
+    private TextView pw_state;
     private Button signup;
     private ImageView back;
+    String text_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +51,34 @@ public class SignUpActivity extends AppCompatActivity {
         sign_email = (EditText) findViewById(R.id.signup_email);
         sign_pw = (EditText) findViewById(R.id.signup_pw);
         sign_pwck = (EditText) findViewById(R.id.signup_pwck);
+        pw_state = findViewById(R.id.pw_state);
+        pw_state.setVisibility(View.INVISIBLE);
 
         //Button
         back = (ImageView) findViewById(R.id.back);
         signup = (Button) findViewById(R.id.signup);
+
+        //텍스트 변화
+        sign_pwck.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                text_password = sign_pwck.getText().toString();
+                if (text_password.length() == 0){
+                    signup.setEnabled(false);
+                    signup.setBackgroundResource(R.drawable.btn_enabled_bg);
+                    signup.setTextColor(Color.WHITE);
+                }else{
+                    signup.setEnabled(true);
+                    signup.setBackgroundResource(R.drawable.btn_abled_bg);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {}
+        });
 
         //회원가입
         signup.setOnClickListener(new View.OnClickListener() {
