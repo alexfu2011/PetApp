@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,56 +24,46 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.project.protectpetapp.databinding.ActivitySignUpBinding;
 
 import java.util.HashMap;
 
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
     FirebaseAuth firebaseAuth;
-
-    private EditText sign_name, sign_email, sign_pw, sign_pwck;
-    private TextView pw_state;
-    private Button signup;
-    private ImageView back;
     String text_password;
 
+    public SignUpActivity() {
+        super(R.layout.activity_sign_up);
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void initView(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
-
-
 
         //파이어베이스 접근 설정
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //EditText
-        sign_name = (EditText) findViewById(R.id.signup_name);
-        sign_email = (EditText) findViewById(R.id.signup_email);
-        sign_pw = (EditText) findViewById(R.id.signup_pw);
-        sign_pwck = (EditText) findViewById(R.id.signup_pwck);
-        pw_state = findViewById(R.id.pw_state);
-        pw_state.setVisibility(View.INVISIBLE);
 
-        //Button
-        back = (ImageView) findViewById(R.id.back);
-        signup = (Button) findViewById(R.id.signup);
+        mBinder.pwState.setVisibility(View.INVISIBLE);
+
 
         //텍스트 변화
-        sign_pwck.addTextChangedListener(new TextWatcher() {
+         mBinder.signupPwck.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                text_password = sign_pwck.getText().toString();
+                text_password = mBinder.signupPwck.getText().toString();
                 if (text_password.length() == 0){
-                    signup.setEnabled(false);
-                    signup.setBackgroundResource(R.drawable.btn_enabled_bg);
-                    signup.setTextColor(Color.WHITE);
+                    mBinder.signup.setEnabled(false);
+                    mBinder.signup.setBackgroundResource(R.drawable.btn_enabled_bg);
+                    mBinder.signup.setTextColor(Color.WHITE);
                 }else{
-                    signup.setEnabled(true);
-                    signup.setBackgroundResource(R.drawable.btn_abled_bg);
+                    mBinder.signup.setEnabled(true);
+                    mBinder.signup.setBackgroundResource(R.drawable.btn_abled_bg);
                 }
             }
 
@@ -81,14 +72,14 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
         //회원가입
-        signup.setOnClickListener(new View.OnClickListener() {
+        mBinder.signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //입력 정보 가져오기
-                final String email = sign_email.getText().toString();
-                final String password = sign_pw.getText().toString();
-                String pwcheck = sign_pwck.getText().toString();
+                final String email = mBinder.signupEmail.getText().toString();
+                final String password = mBinder.signupPw.getText().toString();
+                String pwcheck = mBinder.signupPwck.getText().toString();
 
                 if (password.equals(pwcheck)) {
                     final ProgressDialog mDialog = new ProgressDialog(SignUpActivity.this);
@@ -107,8 +98,8 @@ public class SignUpActivity extends AppCompatActivity {
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
                                 String email = user.getEmail();
                                 String uid = user.getUid();
-                                String name = sign_name.getText().toString().trim();
-                                String pw = sign_pw.getText().toString().trim();
+                                String name = mBinder.signupName.getText().toString().trim();
+                                String pw = mBinder.signupPw.getText().toString().trim();
 
 
                                 //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
@@ -154,7 +145,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         //뒤로가기 눌렀을 때 이벤트
-        back.setOnClickListener(new View.OnClickListener() {
+        mBinder.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);

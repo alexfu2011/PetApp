@@ -1,10 +1,36 @@
 package com.project.protectpetapp;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.PersistableBundle;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 
-public class BaseActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
-    public BaseActivity(){
+public abstract class BaseActivity <T extends ViewDataBinding> extends AppCompatActivity {
 
+    protected final String TAG;
+    T mBinder;
+    int layoutId;
+
+    ArrayList<Activity> ActivityList = new ArrayList<>();
+
+    public BaseActivity(int layoutId){
+        this.layoutId = layoutId;
+        TAG = getClass().getSimpleName();
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mBinder = (T) DataBindingUtil.setContentView(this, layoutId);
+        ActivityList.add(this);
+        initView(savedInstanceState);
+    }
+
+    protected abstract void initView(Bundle savedInstanceState);
 }
