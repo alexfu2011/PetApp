@@ -1,4 +1,4 @@
-package com.project.protectpetapp;
+package com.project.protectpetapp.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivityLoginBinding;
 
 import java.util.List;
@@ -111,8 +112,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(LoginActivity.this);
                 View mView = getLayoutInflater().inflate(R.layout.activity_pw_search, null);
                 final EditText sEmail = (EditText) mView.findViewById(R.id.email);
-                Button mSearch = (Button) mView.findViewById(R.id.search);
-                Button mCancel = (Button) mView.findViewById(R.id.cancel);
+                Button mSearch = (Button) mView.findViewById(R.id.btn_confirm);
+                Button mCancel = (Button) mView.findViewById(R.id.btn_cancel);
 
                 mBuilder.setView(mView);
                 final AlertDialog dialog = mBuilder.create();

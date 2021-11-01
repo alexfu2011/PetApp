@@ -61,8 +61,8 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/search"
-            android:text="확인"
+            android:id="@+id/btn_cancel"
+            android:text="취소"
             android:textSize="15sp"
             android:padding="16dp"
             android:gravity="center"
@@ -77,14 +77,14 @@
             android:background="#66bdbdbd"/>
 
         <Button
-            android:id="@+id/cancel"
+            android:id="@+id/btn_confirm"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="#00000000"
             android:gravity="center"
             android:padding="16dp"
-            android:text="취소"
+            android:text="확인"
             android:textSize="15sp" />
     </LinearLayout>
 
