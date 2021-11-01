@@ -7,15 +7,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -40,35 +34,34 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        //super.onCreate(savedInstanceState);
 
         //파이어베이스 접근 설정
         firebaseAuth = FirebaseAuth.getInstance();
-
-
         mBinder.pwState.setVisibility(View.INVISIBLE);
 
-
         //텍스트 변화
-         mBinder.signupPwck.addTextChangedListener(new TextWatcher() {
+        mBinder.signupPwck.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 text_password = mBinder.signupPwck.getText().toString();
-                if (text_password.length() == 0){
+                if (text_password.length() == 0) {
                     mBinder.signup.setEnabled(false);
                     mBinder.signup.setBackgroundResource(R.drawable.btn_enabled_bg);
                     mBinder.signup.setTextColor(Color.WHITE);
-                }else{
+                } else {
                     mBinder.signup.setEnabled(true);
                     mBinder.signup.setBackgroundResource(R.drawable.btn_abled_bg);
                 }
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {}
+            public void afterTextChanged(Editable editable) {
+            }
         });
 
         //회원가입
@@ -103,11 +96,11 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
 
 
                                 //해쉬맵 테이블을 파이어베이스 데이터베이스에 저장
-                                HashMap<Object,String> hashMap = new HashMap<>();
+                                HashMap<Object, String> hashMap = new HashMap<>();
 
-                                hashMap.put("uid",uid);
-                                hashMap.put("email",email);
-                                hashMap.put("name",name);
+                                hashMap.put("uid", uid);
+                                hashMap.put("email", email);
+                                hashMap.put("name", name);
                                 hashMap.put("password", pw);
 
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -132,7 +125,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
                     });
 
                     //비밀번호 오류시
-                }else{
+                } else {
                     Toast.makeText(SignUpActivity.this, "비밀번호가 틀렸습니다.\n 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
                     return;
 
@@ -140,8 +133,6 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
                 }
             }
         });
-
-
 
 
         //뒤로가기 눌렀을 때 이벤트

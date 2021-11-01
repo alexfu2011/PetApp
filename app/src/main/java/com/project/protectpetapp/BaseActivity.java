@@ -2,7 +2,6 @@ package com.project.protectpetapp;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +16,7 @@ public abstract class BaseActivity <T extends ViewDataBinding> extends AppCompat
     T mBinder;
     int layoutId;
 
-    ArrayList<Activity> ActivityList = new ArrayList<>();
+    protected static final ArrayList<Activity> ActivityList = new ArrayList<>();
 
     public BaseActivity(int layoutId){
         this.layoutId = layoutId;
