@@ -2,15 +2,17 @@ package com.project.protectpetapp.view;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.project.protectpetapp.R;
+import com.project.protectpetapp.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
+
+    public MainActivity(){
+        super(R.layout.activity_main);
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected void initView(Bundle savedInstanceState) {
+
     }
 }
