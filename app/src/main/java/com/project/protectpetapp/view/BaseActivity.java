@@ -3,6 +3,7 @@ package com.project.protectpetapp.view;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +41,14 @@ public abstract class BaseActivity <T extends ViewDataBinding> extends AppCompat
 
         View view = findViewById(R.id.btn_back);
         if (view != null) view.setOnClickListener(v -> onBackPressed());
+    }
+
+    protected void setToolbar(String title){
+        Object object = findViewById(R.id.toolbar);
+        if (object == null) return;
+
+        TextView textView = findViewById(R.id.toolbar_title);
+        if (textView != null) textView.setText(title);
     }
 
     protected abstract void initView(Bundle savedInstanceState);
