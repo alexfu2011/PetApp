@@ -43,7 +43,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-//파이어베이스 접근 설정
+        //파이어베이스 접근 설정
         firebaseAuth = FirebaseAuth.getInstance();
 
         final String email = mBinder.editEmail.getText().toString();
@@ -99,7 +99,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 

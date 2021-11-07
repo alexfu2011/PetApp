@@ -35,7 +35,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        //super.onCreate(savedInstanceState);
+        initToolbar();
 
         //파이어베이스 접근 설정
         firebaseAuth = FirebaseAuth.getInstance();
@@ -129,20 +129,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
                 } else {
                     Toast.makeText(SignUpActivity.this, "비밀번호가 틀렸습니다.\n 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
                     return;
-
-
                 }
-            }
-        });
-
-
-        //뒤로가기 눌렀을 때 이벤트
-        mBinder.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
     }
