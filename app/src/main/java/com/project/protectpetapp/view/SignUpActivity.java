@@ -2,7 +2,6 @@ package com.project.protectpetapp.view;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -26,7 +25,7 @@ import java.util.HashMap;
 
 public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
     FirebaseAuth firebaseAuth;
-    String text_password;
+    String text_password, text_password_ck;
 
     public SignUpActivity() {
         super(R.layout.activity_sign_up);
@@ -41,22 +40,23 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
         firebaseAuth = FirebaseAuth.getInstance();
         mBinder.pwState.setVisibility(View.INVISIBLE);
 
-        //텍스트 변화
+//        비밀번호 체크
         mBinder.signupPwck.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                text_password = mBinder.signupPwck.getText().toString();
-                if (text_password.length() == 0) {
-                    mBinder.signup.setEnabled(false);
-                    mBinder.signup.setBackgroundResource(R.drawable.btn_enabled_bg);
-                    mBinder.signup.setTextColor(Color.WHITE);
-                } else {
-                    mBinder.signup.setEnabled(true);
-                    mBinder.signup.setBackgroundResource(R.drawable.btn_abled_bg);
+                text_password = mBinder.signupPw.getText().toString();
+                text_password_ck = mBinder.signupPwck.getText().toString();
+
+                if(text_password_ck.length() == 0 || text_password.length() == 0)
+                    mBinder.pwState.setVisibility(View.INVISIBLE);
+
+                if (text_password.equals(text_password_ck)){
+                    mBinder.pwState.setText("비밀번호가 일치합니다");
+                    mBinder.pwState.setVisibility(View.VISIBLE);
+                }else {
                 }
             }
 
