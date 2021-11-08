@@ -35,6 +35,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
     @Override
     protected void initView(Bundle savedInstanceState) {
         initToolbar();
+        setToolbar("회원가입");
 
         //파이어베이스 접근 설정
         firebaseAuth = FirebaseAuth.getInstance();
