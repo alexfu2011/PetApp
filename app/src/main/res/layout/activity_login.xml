@@ -88,7 +88,7 @@
             android:background="#00ff0000"
             android:gravity="center"
             android:text="비밀번호를 잊으셨나요?"
-            android:textColor="#585858" />
+            android:textColor="#585858"/>
 
         <Button
             android:id="@+id/btn_login"
@@ -98,7 +98,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/btn_enabled_bg"
             android:gravity="center"
-            android:text="로그인" />
+            android:text="로그인"/>
 
         <Button
             android:id="@+id/btn_sign"
@@ -108,7 +108,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/btn_abled_bg"
             android:gravity="center"
-            android:text="회원가입" />
+            android:text="회원가입"/>
 
     </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

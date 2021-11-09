@@ -7,12 +7,14 @@ import com.project.protectpetapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
-    public MainActivity(){
+    public MainActivity() {
         super(R.layout.activity_main);
     }
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+        initToolbar();
+        setToolbar("메인");
 
     }
 }

@@ -58,6 +58,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
                     mBinder.pwState.setText("비밀번호가 일치합니다");
                     mBinder.pwState.setVisibility(View.VISIBLE);
                 }else {
+                    mBinder.pwState.setText("비밀번호가 일치하지 않습니다.");
                 }
             }
 
