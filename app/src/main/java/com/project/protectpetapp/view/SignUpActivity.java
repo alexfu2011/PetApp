@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivitySignUpBinding;
+import com.project.protectpetapp.model.Owner;
 
 import java.util.HashMap;
 
@@ -26,6 +27,7 @@ import java.util.HashMap;
 public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
     FirebaseAuth firebaseAuth;
     String text_password, text_password_ck;
+    Owner.OwnerInfo owners = new Owner.OwnerInfo(); // 주인
 
     public SignUpActivity() {
         super(R.layout.activity_sign_up);

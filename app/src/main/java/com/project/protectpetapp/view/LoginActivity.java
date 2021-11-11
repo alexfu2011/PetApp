@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +47,23 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
         mBinder.btnSign.setOnClickListener(this);
         mBinder.btnLogin.setOnClickListener(this);
         mBinder.btnSearchPw.setOnClickListener(this);
+
+        mBinder.editPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (mBinder.editEmail.length() > 0){
+                    mBinder.btnLogin.setEnabled(true);
+                    mBinder.btnLogin.setBackgroundResource(R.drawable.btn_abled_bg);
+                }else{
+                    mBinder.btnLogin.setEnabled(false);
+                    mBinder.btnLogin.setBackgroundResource(R.drawable.btn_enabled_bg);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
 
 
