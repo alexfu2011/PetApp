@@ -21,7 +21,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         Fragment fragment_home = new HomeFragment();
 
         mBinder.bottomNaviBar.setSelectedItemId(R.id.action_home);
-
         mBinder.bottomNaviBar.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.action_home :
