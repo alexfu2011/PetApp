@@ -20,6 +20,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
         Fragment fragment_home = new HomeFragment();
         Fragment fragment_profile = new ProfileFragment();
+        Fragment fragment_veccine_check = new VeccineCheckFragment();
        // Fragment fragment_home = new HomeFragment();
 
         mBinder.bottomNaviBar.setSelectedItemId(R.id.action_home);
@@ -27,6 +28,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             switch (item.getItemId()){
                 case R.id.action_home :
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_home).commit();
+                    return true;
+                case R.id.action_veccine_check :
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_veccine_check).commit();
                     return true;
                 case R.id.action_profile :
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_profile).commit();

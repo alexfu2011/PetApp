@@ -7,7 +7,7 @@
         android:title="home"/>
 
     <item
-        android:id="@+id/action_list"
+        android:id="@+id/action_veccine_check"
         android:enabled="true"
         android:title="list"/>
 
