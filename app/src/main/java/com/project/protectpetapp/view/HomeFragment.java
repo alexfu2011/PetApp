@@ -4,8 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.project.protectpetapp.R;
+import com.project.protectpetapp.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
 
     public HomeFragment() {
         super(R.layout.fragment_home);
@@ -14,6 +15,6 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected View initView(Bundle savedInstanceState) {
-        return null;
+        return fBinder.getRoot();
     }
 }
