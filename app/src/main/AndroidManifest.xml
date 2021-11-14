@@ -13,15 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.RegisterPetActivity"></activity>
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.SignUpActivity" />
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="5ca4ddb75f7703847090d27ddc98ab05" />

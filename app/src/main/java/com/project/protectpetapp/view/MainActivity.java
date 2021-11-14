@@ -28,12 +28,15 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             switch (item.getItemId()){
                 case R.id.action_home :
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_home).commit();
+                    setToolbar("홈");
                     return true;
                 case R.id.action_veccine_check :
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_veccine_check).commit();
+                    setToolbar("예방접종 체크");
                     return true;
                 case R.id.action_profile :
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_profile).commit();
+                    setToolbar("댕댕이 프로필");
                     return true;
             }
             return false;
