@@ -19,12 +19,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         setToolbar("메인");
 
         Fragment fragment_home = new HomeFragment();
+        Fragment fragment_profile = new ProfileFragment();
+       // Fragment fragment_home = new HomeFragment();
 
         mBinder.bottomNaviBar.setSelectedItemId(R.id.action_home);
         mBinder.bottomNaviBar.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.action_home :
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_home).commit();
+                    return true;
+                case R.id.action_profile :
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_profile).commit();
                     return true;
             }
             return false;
