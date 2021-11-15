@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public abstract class BaseFragment <T extends ViewDataBinding> extends Fragment {
 
-    T fBinder;
+    T mBinder;
     int fragmentId;
     protected static final ArrayList<Fragment> FragmentList = new ArrayList<>();
 
@@ -26,9 +26,10 @@ public abstract class BaseFragment <T extends ViewDataBinding> extends Fragment 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fBinder = (T) DataBindingUtil.inflate(inflater, fragmentId, container, false);
+        mBinder = (T) DataBindingUtil.inflate(inflater, fragmentId, container, false);
         FragmentList.add(this);
-        return fBinder.getRoot();
+        initView(savedInstanceState);
+        return mBinder.getRoot();
     }
 
     protected abstract View initView(Bundle savedInstanceState);
