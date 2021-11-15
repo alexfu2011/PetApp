@@ -15,6 +15,6 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
 
     @Override
     protected View initView(Bundle savedInstanceState) {
-        return fBinder.getRoot();
+        return mBinder.getRoot();
     }
 }
