@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment;
 
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivityMainBinding;
+import com.project.protectpetapp.view.fragment.HomeFragment;
+import com.project.protectpetapp.view.fragment.ProfileFragment;
+import com.project.protectpetapp.view.fragment.VeccineCheckFragment;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 

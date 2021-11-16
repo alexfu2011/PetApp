@@ -1,4 +1,4 @@
-package com.project.protectpetapp.view;
+package com.project.protectpetapp.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

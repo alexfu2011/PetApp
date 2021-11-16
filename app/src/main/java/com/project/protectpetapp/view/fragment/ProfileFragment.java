@@ -1,4 +1,4 @@
-package com.project.protectpetapp.view;
+package com.project.protectpetapp.view.fragment;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.FragmentProfileBinding;
+import com.project.protectpetapp.view.RegisterPetActivity;
 
 public class ProfileFragment extends BaseFragment<FragmentProfileBinding> implements View.OnClickListener {
 
