@@ -17,10 +17,7 @@ import java.util.Calendar;
 
 public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding> implements View.OnClickListener {
 
-    private int mYear = 0, mMonth = 0, mDay = 0;
     private DatePicker datePicker;
-    private Calendar calendar;
-
 
     public RegisterPetActivity() {
         super(R.layout.activity_register_pet);
@@ -68,7 +65,7 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
 
     @SuppressLint("SetTextI18n")
     private void showDate() {
-        calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         int year = this.datePicker.getYear();
         int month = this.datePicker.getMonth(); // 0 - 11
         int day = this.datePicker.getDayOfMonth();
