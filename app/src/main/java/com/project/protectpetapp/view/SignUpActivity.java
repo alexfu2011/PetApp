@@ -46,20 +46,21 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> {
 //        비밀번호 체크
         mBinder.signupPwck.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 text_password = mBinder.signupPw.getText().toString();
                 text_password_ck = mBinder.signupPwck.getText().toString();
 
-                if(text_password_ck.length() == 0 || text_password.length() == 0)
+                if (text_password_ck.length() == 0 || text_password.length() == 0)
                     mBinder.pwState.setVisibility(View.INVISIBLE);
 
-                if (text_password.equals(text_password_ck)){
+                if (text_password.equals(text_password_ck)) {
                     mBinder.pwState.setText("비밀번호가 일치합니다");
                     mBinder.pwState.setVisibility(View.VISIBLE);
-                }else {
+                } else {
                     mBinder.pwState.setText("비밀번호가 일치하지 않습니다.");
                 }
             }

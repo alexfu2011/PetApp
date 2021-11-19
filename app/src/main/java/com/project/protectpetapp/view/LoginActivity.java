@@ -50,19 +50,23 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
 
         mBinder.editPassword.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (mBinder.editEmail.length() > 0){
+                if (mBinder.editEmail.length() > 0) {
                     mBinder.btnLogin.setEnabled(true);
                     mBinder.btnLogin.setBackgroundResource(R.drawable.btn_abled_bg);
-                }else{
+                } else {
                     mBinder.btnLogin.setEnabled(false);
                     mBinder.btnLogin.setBackgroundResource(R.drawable.btn_enabled_bg);
                 }
             }
+
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
         });
     }
 
@@ -71,10 +75,10 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
     public void onClick(View v) {
         int viewId = v.getId();
 
-        if (viewId == R.id.btn_sign){
+        if (viewId == R.id.btn_sign) {
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
             startActivity(intent);
-        }else if(viewId == R.id.btn_login){
+        } else if (viewId == R.id.btn_login) {
             final String email = mBinder.editEmail.getText().toString();
             final String password = mBinder.editPassword.getText().toString();
             count++;
@@ -110,7 +114,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
                 alertDialog.show();
                 count = 0;
             }
-        }else if(viewId == R.id.btn_search_pw){
+        } else if (viewId == R.id.btn_search_pw) {
             //비밀번호 찾기 창 띄우기
             AlertDialog.Builder mBuilder = new AlertDialog.Builder(LoginActivity.this);
             View mView = getLayoutInflater().inflate(R.layout.item_pw_search, null);

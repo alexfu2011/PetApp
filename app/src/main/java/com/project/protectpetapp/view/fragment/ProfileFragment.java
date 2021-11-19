@@ -18,9 +18,9 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> implem
     }
 
     @Override
-    protected View initView(Bundle savedInstanceState) {
+    protected void initView(Bundle savedInstanceState) {
         mBinder.btnRegisterPet.setOnClickListener(this);
-        return mBinder.getRoot();
+        mBinder.getRoot();
     }
 
     @Override
@@ -35,10 +35,6 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> implem
             AlertDialog dialog = petSelectDialog.create();
             dialog.setView(view);
             dialog.show();
-
-//            petSelectDialog.setView(view)
-//                    .create()
-//                    .show();
 
             String dog = "dog";
             String cat = "cat";

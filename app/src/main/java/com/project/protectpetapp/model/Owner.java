@@ -12,7 +12,7 @@ public class Owner {
     public String password;
     public Map<String, OwnerInfo> Owners = new HashMap<>();
 
-    public static class OwnerInfo{
+    public static class OwnerInfo {
         public String oid;
         public String petId;
         public String name;

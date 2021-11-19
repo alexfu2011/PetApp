@@ -26,14 +26,16 @@
                 android:id="@+id/btn_add_profile_img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/ic_launcher"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="5dp"
-                android:text="반려동물 이름" />
+                android:text="반려동물 이름"
+                tools:ignore="HardcodedText" />
 
             <EditText
                 android:id="@+id/edit_pet_name"
@@ -41,14 +43,16 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg"
                 android:padding="5dp"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                tools:ignore="SpUsage"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:text="반려동물 품종" />
+                android:text="반려동물 품종"
+                tools:ignore="HardcodedText" />
 
             <EditText
                 android:id="@+id/edit_pet_breed"
@@ -56,14 +60,16 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg"
                 android:padding="5dp"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                tools:ignore="SpUsage" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                android:text="반려동물 생년월일" />
+                android:text="반려동물 생년월일"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/tv_pet_birth"
@@ -71,7 +77,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg"
                 android:padding="5sp"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                tools:ignore="SpUsage" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

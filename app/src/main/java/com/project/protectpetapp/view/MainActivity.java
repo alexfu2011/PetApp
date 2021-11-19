@@ -1,5 +1,6 @@
 package com.project.protectpetapp.view;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,6 +17,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         super(R.layout.activity_main);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void initView(Bundle savedInstanceState) {
         initToolbar();
@@ -24,20 +26,19 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         Fragment fragment_home = new HomeFragment();
         Fragment fragment_profile = new ProfileFragment();
         Fragment fragment_veccine_check = new VeccineCheckFragment();
-       // Fragment fragment_home = new HomeFragment();
 
         mBinder.bottomNaviBar.setSelectedItemId(R.id.action_home);
         mBinder.bottomNaviBar.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.action_home :
+            switch (item.getItemId()) {
+                case R.id.action_home:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_home).commit();
                     setToolbar("홈");
                     return true;
-                case R.id.action_veccine_check :
+                case R.id.action_veccine_check:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_veccine_check).commit();
                     setToolbar("예방접종 체크");
                     return true;
-                case R.id.action_profile :
+                case R.id.action_profile:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_profile).commit();
                     setToolbar("댕댕이 프로필");
                     return true;

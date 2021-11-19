@@ -13,13 +13,13 @@ import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
-public abstract class BaseFragment <T extends ViewDataBinding> extends Fragment {
+public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
 
     T mBinder;
     int fragmentId;
     protected static final ArrayList<Fragment> FragmentList = new ArrayList<>();
 
-    public BaseFragment(int fragmentId){
+    public BaseFragment(int fragmentId) {
         this.fragmentId = fragmentId;
     }
 
@@ -32,7 +32,7 @@ public abstract class BaseFragment <T extends ViewDataBinding> extends Fragment 
         return mBinder.getRoot();
     }
 
-    protected abstract View initView(Bundle savedInstanceState);
+    protected abstract void initView(Bundle savedInstanceState);
 
 
 }

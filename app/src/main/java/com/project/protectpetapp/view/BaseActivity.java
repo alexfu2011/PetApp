@@ -20,7 +20,7 @@ import com.project.protectpetapp.R;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 
-public abstract class BaseActivity <T extends ViewDataBinding> extends AppCompatActivity {
+public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatActivity {
 
     protected final String TAG;
     T mBinder;
@@ -28,7 +28,7 @@ public abstract class BaseActivity <T extends ViewDataBinding> extends AppCompat
 
     protected static final ArrayList<Activity> ActivityList = new ArrayList<>();
 
-    public BaseActivity(int layoutId){
+    public BaseActivity(int layoutId) {
         this.layoutId = layoutId;
         TAG = getClass().getSimpleName();
     }
@@ -41,7 +41,7 @@ public abstract class BaseActivity <T extends ViewDataBinding> extends AppCompat
         initView(savedInstanceState);
     }
 
-    protected void initToolbar(){
+    protected void initToolbar() {
         Object object = findViewById(R.id.toolbar);
         if (object == null) return;
 
@@ -49,7 +49,7 @@ public abstract class BaseActivity <T extends ViewDataBinding> extends AppCompat
         if (view != null) view.setOnClickListener(v -> onBackPressed());
     }
 
-    protected void setToolbar(String title){
+    protected void setToolbar(String title) {
         Object object = findViewById(R.id.toolbar);
         if (object == null) return;
 

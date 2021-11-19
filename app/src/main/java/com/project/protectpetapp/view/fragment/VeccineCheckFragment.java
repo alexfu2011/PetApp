@@ -1,7 +1,6 @@
 package com.project.protectpetapp.view.fragment;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.project.protectpetapp.R;
 
@@ -12,7 +11,6 @@ public class VeccineCheckFragment extends BaseFragment {
     }
 
     @Override
-    protected View initView(Bundle savedInstanceState) {
-        return null;
+    protected void initView(Bundle savedInstanceState) {
     }
 }
