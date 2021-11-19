@@ -1,25 +1,25 @@
 package com.project.protectpetapp.view;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivityRegisterPetBinding;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding> implements View.OnClickListener {
 
-    private final SimpleDateFormat mDateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
-    DatePickerDialog datePickerDialog;
     private int mYear = 0, mMonth = 0, mDay = 0;
+    private DatePicker datePicker;
+    private Calendar calendar;
 
 
     public RegisterPetActivity() {
@@ -39,31 +39,41 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
         mBinder.tvPetBirth.setOnClickListener(this);
     }
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.tv_pet_birth) {
-            final Calendar calendar = Calendar.getInstance();
-            mYear = calendar.get(Calendar.YEAR);
-            mMonth = calendar.get(Calendar.MONTH);
-            mDay = calendar.get(Calendar.DAY_OF_MONTH);
 
             View view = getLayoutInflater().inflate(R.layout.item_datepiker_spinner, null);
+            datePicker = view.findViewById(R.id.date_picker);
+            TextView btnSetting = view.findViewById(R.id.btn_setting);
+            TextView btnCancel = view.findViewById(R.id.btn_cancel);
 
             AlertDialog.Builder petSelectDialog = new AlertDialog.Builder(this);
             AlertDialog dialog = petSelectDialog.create();
             dialog.setView(view);
             dialog.show();
 
+            btnSetting.setOnClickListener(v1 -> {
+                showDate();
+                dialog.dismiss();
+            });
 
-//            datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-//                @Override
-//                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-//                    int age = (calendar.get(Calendar.YEAR)) - (year+1);
-//                    mBinder.tvPetBirth.setText(year+"-"+(month+1)+"-"+dayOfMonth+"("+age+"살)");
-//                }
-//            }, mYear, mMonth, mDay);
-//            datePickerDialog.show();
+            btnCancel.setOnClickListener(v1 -> {
+                dialog.dismiss();
+            });
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void showDate() {
+        calendar = Calendar.getInstance();
+        int year = this.datePicker.getYear();
+        int month = this.datePicker.getMonth(); // 0 - 11
+        int day = this.datePicker.getDayOfMonth();
+
+        int age = (calendar.get(Calendar.YEAR)) - year + 1;
+        mBinder.tvPetBirth.setText(year + "-" + (month + 1) + "-" + day + " (" + age + "살)");
     }
 }

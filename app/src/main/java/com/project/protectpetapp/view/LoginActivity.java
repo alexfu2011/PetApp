@@ -113,7 +113,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
         }else if(viewId == R.id.btn_search_pw){
             //비밀번호 찾기 창 띄우기
             AlertDialog.Builder mBuilder = new AlertDialog.Builder(LoginActivity.this);
-            View mView = getLayoutInflater().inflate(R.layout.activity_pw_search, null);
+            View mView = getLayoutInflater().inflate(R.layout.item_pw_search, null);
             final EditText sEmail = (EditText) mView.findViewById(R.id.email);
             Button mSearch = (Button) mView.findViewById(R.id.btn_confirm);
             Button mCancel = (Button) mView.findViewById(R.id.btn_cancel);
