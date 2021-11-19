@@ -1,10 +1,10 @@
 package com.project.protectpetapp.view;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
 
 import androidx.annotation.RequiresApi;
 
@@ -48,14 +48,22 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
             mMonth = calendar.get(Calendar.MONTH);
             mDay = calendar.get(Calendar.DAY_OF_MONTH);
 
-            datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    int age = (calendar.get(Calendar.YEAR)) - (year+1);
-                    mBinder.tvPetBirth.setText(year+"-"+(month+1)+"-"+dayOfMonth+"("+age+"살)");
-                }
-            }, mYear, mMonth, mDay);
-            datePickerDialog.show();
+            View view = getLayoutInflater().inflate(R.layout.item_datepiker_spinner, null);
+
+            AlertDialog.Builder petSelectDialog = new AlertDialog.Builder(this);
+            AlertDialog dialog = petSelectDialog.create();
+            dialog.setView(view);
+            dialog.show();
+
+
+//            datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+//                @Override
+//                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                    int age = (calendar.get(Calendar.YEAR)) - (year+1);
+//                    mBinder.tvPetBirth.setText(year+"-"+(month+1)+"-"+dayOfMonth+"("+age+"살)");
+//                }
+//            }, mYear, mMonth, mDay);
+//            datePickerDialog.show();
         }
     }
 }
