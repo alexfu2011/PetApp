@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFF5F5"
@@ -35,16 +36,17 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="5dp"
                 android:text="반려동물 이름"
-                tools:ignore="HardcodedText" />
+                android:textSize="12dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <EditText
                 android:id="@+id/edit_pet_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg"
-                android:padding="5dp"
+                android:padding="10dp"
                 android:textSize="16dp"
-                tools:ignore="SpUsage"/>
+                tools:ignore="SpUsage" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -52,14 +54,15 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="반려동물 품종"
-                tools:ignore="HardcodedText" />
+                android:textSize="12dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
-            <EditText
-                android:id="@+id/edit_pet_breed"
+            <TextView
+                android:id="@+id/tv_pet_breed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg"
-                android:padding="5dp"
+                android:padding="10dp"
                 android:textSize="16dp"
                 tools:ignore="SpUsage" />
 
@@ -69,16 +72,68 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="반려동물 생년월일"
-                tools:ignore="HardcodedText" />
+                android:textSize="12dp"
+                tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
                 android:id="@+id/tv_pet_birth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg"
-                android:padding="5sp"
+                android:padding="10dp"
                 android:textSize="16dp"
                 tools:ignore="SpUsage" />
         </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="Orientation" />
+
+        <LinearLayout
+            android:id="@+id/layout_breed"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@drawable/pop_up_bg"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="품종 선택"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,SpUsage" />
+
+            <ScrollView
+                android:id="@+id/list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/breed_list_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

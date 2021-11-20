@@ -34,13 +34,16 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
         }
 
         mBinder.tvPetBirth.setOnClickListener(this);
+        mBinder.tvPetBreed.setOnClickListener(this);
+        mBinder.layoutParent.setOnClickListener(this);
     }
 
     @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.tv_pet_birth) {
+        int viewId = v.getId();
+        if (viewId == R.id.tv_pet_birth) {
 
             View view = getLayoutInflater().inflate(R.layout.item_datepiker_spinner, null);
             datePicker = view.findViewById(R.id.date_picker);
@@ -60,6 +63,16 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
             btnCancel.setOnClickListener(v1 -> {
                 dialog.dismiss();
             });
+        } else if (viewId == R.id.tv_pet_breed) {
+            mBinder.layoutBreed.setVisibility(View.VISIBLE);
+            mBinder.layoutTransparent.setVisibility(View.VISIBLE);
+            mBinder.tvPetBirth.setEnabled(false);
+            mBinder.editPetName.setEnabled(false);
+        } else if (viewId == R.id.layout_parent) {
+            mBinder.layoutBreed.setVisibility(View.GONE);
+            mBinder.layoutTransparent.setVisibility(View.GONE);
+            mBinder.tvPetBirth.setEnabled(true);
+            mBinder.editPetName.setEnabled(true);
         }
     }
 
