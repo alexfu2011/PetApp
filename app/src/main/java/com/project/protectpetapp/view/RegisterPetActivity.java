@@ -25,7 +25,7 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        initToolbar();
+        visibleConfirm();
         String mode = getIntent().getStringExtra("mode");
         if (mode.equals("dog")) {
             setToolbar("강아지 등록");
