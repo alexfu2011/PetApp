@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void initView(Bundle savedInstanceState) {
-        initToolbar();
+        visibleBack();
         setToolbar("메인");
 
         Fragment fragment_home = new HomeFragment();
