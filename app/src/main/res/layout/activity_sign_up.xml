@@ -46,12 +46,98 @@
                 tools:ignore="HardcodedText" />
 
             <EditText
-                android:id="@+id/signup_name"
+                android:id="@+id/txt_sign_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/colorEnabled"
                 tools:targetApi="lollipop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:text="전화번호"
+                    android:textColor="#2E2E2E"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/txt_sign_phone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorEnabled"
+                        tools:targetApi="lollipop"
+                        android:inputType="number"/>
+
+                    <Button
+                        android:id="@+id/btn_phone_auth_start"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="인증"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_phone_auth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:text="인증번호"
+                    android:textColor="#2E2E2E"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/txt_phone_auth_number"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/colorEnabled"
+                        tools:targetApi="lollipop"
+                        android:inputType="number"/>
+
+                    <Button
+                        android:id="@+id/btn_phone_auth_end"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="인증완료"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
 
 
             <TextView
@@ -66,12 +152,13 @@
                 tools:ignore="HardcodedText" />
 
             <EditText
-                android:id="@+id/signup_email"
+                android:id="@+id/txt_sign_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/colorEnabled"
-                tools:targetApi="lollipop" />
+                tools:targetApi="lollipop"
+                android:inputType="textEmailAddress"/>
 
 
             <TextView
@@ -86,7 +173,7 @@
                 tools:ignore="HardcodedText" />
 
             <EditText
-                android:id="@+id/signup_pw"
+                android:id="@+id/txt_sign_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -106,7 +193,7 @@
                 tools:ignore="HardcodedText" />
 
             <EditText
-                android:id="@+id/signup_pwck"
+                android:id="@+id/txt_sign_password_check"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -117,7 +204,7 @@
                 tools:targetApi="lollipop" />
 
             <TextView
-                android:id="@+id/pw_state"
+                android:id="@+id/txt_sign_pw_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
@@ -132,7 +219,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/text_agree"
+                    android:id="@+id/txt_sign_agree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="약관 동의"
@@ -146,7 +233,7 @@
 
 
             <Button
-                android:id="@+id/signup"
+                android:id="@+id/btn_sign_up"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
