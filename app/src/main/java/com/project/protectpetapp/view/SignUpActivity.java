@@ -82,7 +82,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
         String password = mBinder.txtSignPassword.getText().toString();
         String passwordCheck = mBinder.txtSignPasswordCheck.getText().toString();
         String uid = firebaseAuth.getCurrentUser().getUid();
-        String name = mBinder.txtSignName.getText().toString().trim();
+        String name = mBinder.txtSignName.getText().toString();
         String phone;
 
         if (!password.equals(passwordCheck)) {

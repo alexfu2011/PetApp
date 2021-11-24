@@ -12,23 +12,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.SignInMethodQueryResult;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivityLoginBinding;
-
-import java.util.List;
 
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements View.OnClickListener {
     private int count = 0; //클릭횟수
 
     FirebaseAuth firebaseAuth;
-    private DatabaseReference mDatabase;
     FirebaseUser user;
 
     private SharedPreferences preferences;
@@ -131,7 +124,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
                 @Override
                 public void onClick(View v) {
                     final String email = sEmail.getText().toString();
-
+/*
                     mDatabase = FirebaseDatabase.getInstance().getReference();
                     firebaseAuth.fetchSignInMethodsForEmail(email)
                             .addOnCompleteListener(task -> {
@@ -165,6 +158,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
                                     }
                                 }
                             });
+
+ */
                 }
             });
             //비밀번호 찾기 취소버튼 눌렀을 때
