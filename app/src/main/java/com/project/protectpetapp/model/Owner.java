@@ -20,5 +20,5 @@ public class Owner implements Serializable {
     public String phone;
     public String email;
     public String password;
-    public Boolean agree;
+    public boolean agree;
 }

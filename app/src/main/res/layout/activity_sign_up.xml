@@ -77,18 +77,18 @@
                         android:id="@+id/txt_sign_phone"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
                         android:layout_gravity="center"
+                        android:layout_weight="3"
                         android:backgroundTint="@color/colorEnabled"
-                        tools:targetApi="lollipop"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                        tools:targetApi="lollipop" />
 
                     <Button
                         android:id="@+id/btn_phone_auth_start"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="인증"/>
+                        android:text="인증" />
 
                 </LinearLayout>
 
@@ -121,18 +121,18 @@
                         android:id="@+id/txt_phone_auth_number"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
                         android:layout_gravity="center"
+                        android:layout_weight="3"
                         android:backgroundTint="@color/colorEnabled"
-                        tools:targetApi="lollipop"
-                        android:inputType="number"/>
+                        android:inputType="number"
+                        tools:targetApi="lollipop" />
 
                     <Button
                         android:id="@+id/btn_phone_auth_end"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="인증완료"/>
+                        android:text="인증완료" />
 
                 </LinearLayout>
 
@@ -157,8 +157,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/colorEnabled"
-                tools:targetApi="lollipop"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress"
+                tools:targetApi="lollipop" />
 
 
             <TextView
@@ -226,6 +226,7 @@
                     tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/checkbox_sign_agree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

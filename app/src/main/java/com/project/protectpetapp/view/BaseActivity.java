@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.protectpetapp.R;
 
 import java.security.MessageDigest;
@@ -25,6 +27,8 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
     protected final String TAG;
     T mBinder;
     int layoutId;
+    FirebaseAuth mFirebaseAuth;
+    FirebaseFirestore mFirebaseStore;
 
     protected static final ArrayList<Activity> ActivityList = new ArrayList<>();
 

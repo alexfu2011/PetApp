@@ -9,12 +9,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivitySignUpBinding;
+import com.project.protectpetapp.model.Owner;
 
 
 public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implements View.OnClickListener {
-    private FirebaseAuth firebaseAuth;
     String text_password, text_password_ck;
 
     public SignUpActivity() {
@@ -30,7 +31,9 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
         passwordTextChangedCheck();
 
         //파이어베이스 접근 설정
-        firebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseStore = FirebaseFirestore.getInstance();
+
         mBinder.txtSignPwState.setVisibility(View.INVISIBLE);
         mBinder.btnSignUp.setOnClickListener(this);
         mBinder.btnPhoneAuthStart.setOnClickListener(this);
@@ -71,7 +74,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
         int viewId = v.getId();
         if (viewId == R.id.btn_sign_up) {
             signUp();
-        }else if (viewId == R.id.btn_phone_auth_start){
+        } else if (viewId == R.id.btn_phone_auth_start) {
             phoneAuthNumber();
         }
     }
@@ -81,9 +84,9 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
         String email = mBinder.txtSignEmail.getText().toString();
         String password = mBinder.txtSignPassword.getText().toString();
         String passwordCheck = mBinder.txtSignPasswordCheck.getText().toString();
-        String uid = firebaseAuth.getCurrentUser().getUid();
+        String uid = mFirebaseAuth.getCurrentUser().getUid();
         String name = mBinder.txtSignName.getText().toString();
-        String phone;
+        String phone = mBinder.txtSignPhone.getText().toString();
 
         if (!password.equals(passwordCheck)) {
             //비밀번호 오류시
@@ -92,37 +95,44 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
 
 
         final ProgressDialog mDialog = new ProgressDialog(SignUpActivity.this);
-        mDialog.setMessage("가입중입니다...");
+//        mDialog.setMessage("가입중입니다...");
         mDialog.show();
 
-
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
+        //todo : 전화번호 일치 여부 확인
+        //todo : 비밀번호 6자리 이상 입력 필요
+        //todo : dialog 정의 필요
+        //todo : 이메일 @없어서인지, 존재해서인지 구분 필요
+        mFirebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(SignUpActivity.this, task -> {
-                    if (!task.isSuccessful()) {
+                    if (task.isSuccessful()) {
                         mDialog.dismiss();
+                        Owner owner = Owner.builder()
+                                .oid(uid)
+                                .email(email)
+                                .name(name)
+                                .password(password)
+                                .phone(phone)
+                                .agree(mBinder.checkboxSignAgree.isChecked())
+                                .build();
+
+                        mFirebaseStore.collection("ProtectPetApp").document().collection("OwnerInfo").document(uid).set(owner);
+
+                        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                        Toast.makeText(SignUpActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        mDialog.dismiss();
+//                        mDialog.setMessage("이미 존재하는 아이디 입니다.");
+//                        mDialog.show();
                         Toast.makeText(SignUpActivity.this, "이미 존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
                     }
-
-                    mDialog.dismiss();
-//                    Owner owner = Owner.builder()
-//                            .oid(uid)
-//                            .email(email)
-//                            .name(name)
-//                            .password(password)
-//                            .phone(phone)
-//                            .agree()
-//                            .build();
-
-                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                    Toast.makeText(SignUpActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
 
                 });
 
     }
 
-    private void phoneAuthNumber(){
+    private void phoneAuthNumber() {
 //        PhoneAuthOptions options =
 //                PhoneAuthOptions.newBuilder(mAuth)
 //                        .setPhoneNumber(phone)       // Phone number to verify
