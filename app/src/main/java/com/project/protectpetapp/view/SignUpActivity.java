@@ -93,7 +93,6 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
             Toast.makeText(SignUpActivity.this, "비밀번호가 틀렸습니다.\n 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
         }
 
-
         final ProgressDialog mDialog = new ProgressDialog(SignUpActivity.this);
 //        mDialog.setMessage("가입중입니다...");
         mDialog.show();
@@ -125,7 +124,8 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
                         mDialog.dismiss();
 //                        mDialog.setMessage("이미 존재하는 아이디 입니다.");
 //                        mDialog.show();
-                        Toast.makeText(SignUpActivity.this, "이미 존재하는 아이디 입니다.", Toast.LENGTH_SHORT).show();
+//                        CustomDialog.makeDialog(this, "이미 존재하는 이메일입니다.").show();
+                        Toast.makeText(SignUpActivity.this, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show();
                     }
 
                 });
