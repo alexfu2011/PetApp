@@ -1,9 +1,7 @@
 package com.project.protectpetapp.view;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivityLoginBinding;
 
@@ -21,21 +17,12 @@ import com.project.protectpetapp.databinding.ActivityLoginBinding;
 public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements View.OnClickListener {
     private int count = 0; //클릭횟수
 
-    FirebaseAuth firebaseAuth;
-    FirebaseUser user;
-
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
-
     public LoginActivity() {
         super(R.layout.activity_login);
     }
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-
-        //파이어베이스 접근 설정
-        firebaseAuth = FirebaseAuth.getInstance();
 
         mBinder.btnSign.setOnClickListener(this);
         mBinder.btnLogin.setOnClickListener(this);
@@ -76,9 +63,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
             final String password = mBinder.editPassword.getText().toString();
             count++;
             if (count < 3) {
-                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, task -> {
+                mFirebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, task -> {
                     if (task.isSuccessful()) {
-                        FirebaseUser user = firebaseAuth.getCurrentUser();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
@@ -96,13 +82,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
             } else if (count == 3) {//카운트 3일 때
                 final AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                 builder.setTitle("연속해서 틀렸습니다. \n비밀번호 찾기를 이용해주세요.\n")
-                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        });
-
+                        .setPositiveButton("확인", (dialog, which) -> dialog.cancel());
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
                 count = 0;

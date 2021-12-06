@@ -27,8 +27,8 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
     protected final String TAG;
     T mBinder;
     int layoutId;
-    FirebaseAuth mFirebaseAuth;
-    FirebaseFirestore mFirebaseStore;
+    FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore mFirebaseStore = FirebaseFirestore.getInstance();
 
     protected static final ArrayList<Activity> ActivityList = new ArrayList<>();
 

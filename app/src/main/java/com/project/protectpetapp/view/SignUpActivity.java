@@ -8,8 +8,6 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivitySignUpBinding;
 import com.project.protectpetapp.model.Owner;
@@ -30,10 +28,6 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
 
         passwordTextChangedCheck();
 
-        //파이어베이스 접근 설정
-        mFirebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseStore = FirebaseFirestore.getInstance();
-
         mBinder.txtSignPwState.setVisibility(View.INVISIBLE);
         mBinder.btnSignUp.setOnClickListener(this);
         mBinder.btnPhoneAuthStart.setOnClickListener(this);
@@ -47,6 +41,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
 
+            //todo : 비밀번호 일치/비일치 여부 갱신 느림
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 text_password = mBinder.txtSignPassword.getText().toString();
@@ -94,7 +89,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
         }
 
         final ProgressDialog mDialog = new ProgressDialog(SignUpActivity.this);
-//        mDialog.setMessage("가입중입니다...");
+        mDialog.setMessage("가입중입니다...");
         mDialog.show();
 
         //todo : 전화번호 일치 여부 확인
@@ -122,10 +117,17 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
                         Toast.makeText(SignUpActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
                     } else {
                         mDialog.dismiss();
-//                        mDialog.setMessage("이미 존재하는 아이디 입니다.");
-//                        mDialog.show();
+                        if (!email.contains("@")) {
+                            mDialog.setMessage("잘못된 이메일 형식입니다.");
+                            mDialog.show();
+                        } else if (password.length() < 6) {
+                            mDialog.setMessage("잘못된 비밀번호 형식입니다.");
+                            mDialog.show();
+                        } else {
+                            mDialog.setMessage("이미 존재하는 이메일입니다.");
+                            mDialog.show();
+                        }
 //                        CustomDialog.makeDialog(this, "이미 존재하는 이메일입니다.").show();
-                        Toast.makeText(SignUpActivity.this, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show();
                     }
 
                 });
