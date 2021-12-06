@@ -83,6 +83,29 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
         String name = mBinder.txtSignName.getText().toString();
         String phone = mBinder.txtSignPhone.getText().toString();
 
+
+        //todo : 다이얼로그로 변경, 튕기는 현상 수정 필요
+
+        if (email.equals(" ")) {
+            Toast.makeText(SignUpActivity.this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }
+
+        if (phone.equals(" ")) {
+            Toast.makeText(SignUpActivity.this, "전화번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }
+
+        if (password.equals(" ")) {
+            Toast.makeText(SignUpActivity.this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }
+
+        if (passwordCheck.equals(" ")) {
+            Toast.makeText(SignUpActivity.this, "비밀번호 확인을 입력해주세요.", Toast.LENGTH_SHORT).show();
+        }
+
+        if (!mBinder.checkboxSignAgree.isChecked()) {
+            Toast.makeText(SignUpActivity.this, "약관 동의가 필요합니다.", Toast.LENGTH_SHORT).show();
+        }
+
         if (!password.equals(passwordCheck)) {
             //비밀번호 오류시
             Toast.makeText(SignUpActivity.this, "비밀번호가 틀렸습니다.\n 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
