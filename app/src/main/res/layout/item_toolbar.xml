@@ -6,8 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#FFF5F5">
+        android:layout_height="?attr/actionBarSize">
 
         <ImageView
             android:id="@+id/btn_back"
