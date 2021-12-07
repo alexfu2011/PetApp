@@ -150,7 +150,6 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
                             mDialog.setMessage("이미 존재하는 이메일입니다.");
                             mDialog.show();
                         }
-//                        CustomDialog.makeDialog(this, "이미 존재하는 이메일입니다.").show();
                     }
 
                 });
