@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.project.protectpetapp.MyBottomSheetDialog;
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivityRegisterPetBinding;
 
@@ -65,15 +66,8 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
                 dialog.dismiss();
             });
         } else if (viewId == R.id.tv_pet_breed) {
-            mBinder.layoutBreed.setVisibility(View.VISIBLE);
-            mBinder.layoutTransparent.setVisibility(View.VISIBLE);
-            mBinder.tvPetBirth.setEnabled(false);
-            mBinder.editPetName.setEnabled(false);
-        } else if (viewId == R.id.layout_parent) {
-            mBinder.layoutBreed.setVisibility(View.GONE);
-            mBinder.layoutTransparent.setVisibility(View.GONE);
-            mBinder.tvPetBirth.setEnabled(true);
-            mBinder.editPetName.setEnabled(true);
+            MyBottomSheetDialog myBottomSheetDialog = new MyBottomSheetDialog();
+            myBottomSheetDialog.show(getSupportFragmentManager(), "myBottomSheetDialog");
         }
     }
 
