@@ -45,7 +45,7 @@
                 tools:ignore="HardcodedText" />
 
             <EditText
-                android:id="@+id/txt_sign_name"
+                android:id="@+id/sign_up_tv_sign_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -73,7 +73,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/txt_sign_phone"
+                        android:id="@+id/sign_up_tv_sign_phone"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -83,7 +83,7 @@
                         tools:targetApi="lollipop" />
 
                     <Button
-                        android:id="@+id/btn_phone_auth_start"
+                        android:id="@+id/sign_up_btn_phone_auth_start"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -117,7 +117,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/txt_phone_auth_number"
+                        android:id="@+id/sign_up_tv_phone_auth_number"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -127,7 +127,7 @@
                         tools:targetApi="lollipop" />
 
                     <Button
-                        android:id="@+id/btn_phone_auth_end"
+                        android:id="@+id/sign_up_btn_phone_auth_end"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -151,7 +151,7 @@
                 tools:ignore="HardcodedText" />
 
             <EditText
-                android:id="@+id/txt_sign_email"
+                android:id="@+id/sign_up_tv_sign_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -172,7 +172,7 @@
                 tools:ignore="HardcodedText" />
 
             <EditText
-                android:id="@+id/txt_sign_password"
+                android:id="@+id/sign_up_tv_sign_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -192,7 +192,7 @@
                 tools:ignore="HardcodedText" />
 
             <EditText
-                android:id="@+id/txt_sign_password_check"
+                android:id="@+id/sign_up_tv_sign_password_check"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -203,7 +203,7 @@
                 tools:targetApi="lollipop" />
 
             <TextView
-                android:id="@+id/txt_sign_pw_state"
+                android:id="@+id/sign_up_tv_sign_pw_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
@@ -218,14 +218,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txt_sign_agree"
+                    android:id="@+id/sign_up_tv_sign_agree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="약관 동의"
                     tools:ignore="HardcodedText" />
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/checkbox_sign_agree"
+                    android:id="@+id/sign_up_checkbox_sign_agree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -233,7 +233,7 @@
 
 
             <Button
-                android:id="@+id/btn_sign_up"
+                android:id="@+id/sign_up_btn_sign_up"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

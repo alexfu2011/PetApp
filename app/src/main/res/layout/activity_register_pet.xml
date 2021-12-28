@@ -23,7 +23,7 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar">
 
             <ImageView
-                android:id="@+id/btn_add_profile_img"
+                android:id="@+id/register_pet_btn_add_profile_img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@mipmap/ic_launcher"
@@ -39,7 +39,7 @@
                 tools:ignore="HardcodedText,SpUsage" />
 
             <EditText
-                android:id="@+id/edit_pet_name"
+                android:id="@+id/register_pet_edit_pet_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg"
@@ -57,7 +57,7 @@
                 tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
-                android:id="@+id/tv_pet_breed"
+                android:id="@+id/register_pet_tv_pet_breed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg"
@@ -75,7 +75,7 @@
                 tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
-                android:id="@+id/tv_pet_birth"
+                android:id="@+id/register_pet_tv_pet_birth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_bg"
@@ -96,43 +96,5 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="Orientation" />
-
-        <LinearLayout
-            android:id="@+id/layout_breed"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:background="@drawable/pop_up_bg"
-            android:orientation="vertical"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:padding="10dp"
-                android:text="품종 선택"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,SpUsage" />
-
-            <ScrollView
-                android:id="@+id/list_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:id="@+id/breed_list_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </ScrollView>
-        </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

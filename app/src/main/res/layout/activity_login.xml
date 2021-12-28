@@ -37,7 +37,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/text_email"
+                android:id="@+id/login_tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
@@ -46,7 +46,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edit_email"
+                android:id="@+id/login_edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -54,7 +54,7 @@
                 android:inputType="textEmailAddress" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/login_tv_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
@@ -64,7 +64,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edit_password"
+                android:id="@+id/login_edit_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -72,7 +72,7 @@
                 android:inputType="textPassword" />
 
             <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/auto_login"
+                android:id="@+id/login_checkbox_auto_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -80,7 +80,7 @@
                 android:textColor="#585858" />
 
             <Button
-                android:id="@+id/btn_search_pw"
+                android:id="@+id/login_btn_search_password"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                 android:textColor="#585858" />
 
             <Button
-                android:id="@+id/btn_login"
+                android:id="@+id/login_btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -102,7 +102,7 @@
                 android:text="로그인" />
 
             <Button
-                android:id="@+id/btn_sign"
+                android:id="@+id/login_btn_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

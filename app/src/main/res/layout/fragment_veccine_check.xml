@@ -10,7 +10,7 @@
         tools:ignore="UselessLeaf">
 
         <LinearLayout
-            android:id="@+id/layout_binder_pets"
+            android:id="@+id/fragment_veccine_check_layout_binder_pets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/txt_pet_name"
+                android:id="@+id/fragment_veccine_check_tv_pet_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -29,7 +29,7 @@
                 android:textSize="16dp" />
 
             <ImageView
-                android:id="@+id/icon_arrow_down"
+                android:id="@+id/fragment_veccine_check_icon_arrow_down"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_arrow_down" />
@@ -49,7 +49,7 @@
             tools:ignore="Orientation" />
 
         <LinearLayout
-            android:id="@+id/layout_pet_select"
+            android:id="@+id/fragment_veccine_check_layout_pet_select"
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:background="@drawable/pop_up_bg"
@@ -86,12 +86,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_no_pet"
+            android:id="@+id/fragment_veccine_check_layout_no_pet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:background="@color/white"
             android:gravity="center_vertical"
-            android:background="@color/white">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"

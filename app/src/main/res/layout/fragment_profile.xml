@@ -8,7 +8,7 @@
         tools:context=".view.fragment.ProfileFragment">
 
         <LinearLayout
-            android:id="@+id/btn_pet_name"
+            android:id="@+id/fragment_profile_btn_pet_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -27,7 +27,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_pet_id"
+                    android:id="@+id/fragment_profile_tv_pet_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -36,7 +36,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
-                    android:id="@+id/tv_pet_name"
+                    android:id="@+id/fragment_profile_tv_pet_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -45,7 +45,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
-                    android:id="@+id/tv_pet_birth"
+                    android:id="@+id/fragment_profile_tv_pet_birth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -54,7 +54,7 @@
                     tools:ignore="HardcodedText,SpUsage" />
 
                 <TextView
-                    android:id="@+id/tv_pet_breed"
+                    android:id="@+id/fragment_profile_tv_pet_breed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -67,7 +67,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/btn_register_pet"
+            android:id="@+id/fragment_profile_btn_register_pet"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_margin="20dp"

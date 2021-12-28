@@ -2,14 +2,13 @@ package com.project.protectpetapp;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.project.protectpetapp.databinding.DialogCustomBinding;
 
-public class CustomDialog extends Dialog implements View.OnClickListener {
+public class CustomDialog extends Dialog {
 
     DialogCustomBinding mBinder;
 
@@ -19,26 +18,26 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
 
     public static class Builder {
         CustomDialog dialog;
-        
-        public Builder(Context context){
-            dialog  = new CustomDialog(context);
+
+        public Builder(Context context) {
+            dialog = new CustomDialog(context);
         }
 
-        public Builder setTitle(String title){
+        public Builder setTitle(String title) {
             dialog.setTitle(title);
             return this;
         }
 
-        public Builder setMessage(String message){
+        public Builder setMessage(String message) {
             dialog.setMessage(message);
             return this;
         }
 
-        public void show(){
+        public void show() {
             dialog.show();
         }
 
-        public CustomDialog create(){
+        public CustomDialog create() {
             return dialog;
         }
     }
@@ -49,10 +48,5 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
 
     private void setMessage(@Nullable CharSequence message) {
         mBinder.customDialogContentText.setText(message);
-    }
-
-    @Override
-    public void onClick(View v) {
-        
     }
 }
