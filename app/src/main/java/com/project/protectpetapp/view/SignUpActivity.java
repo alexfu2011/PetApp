@@ -30,15 +30,15 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
 
         passwordTextChangedCheck();
 
-        mBinder.txtSignPwState.setVisibility(View.INVISIBLE);
-        mBinder.btnSignUp.setOnClickListener(this);
-        mBinder.btnPhoneAuthStart.setOnClickListener(this);
+        mBinder.signUpTvSignPwState.setVisibility(View.INVISIBLE);
+        mBinder.signUpBtnSignUp.setOnClickListener(this);
+        mBinder.signUpBtnPhoneAuthStart.setOnClickListener(this);
 
     }
 
     private void passwordTextChangedCheck() {
         //비밀번호 체크
-        mBinder.txtSignPasswordCheck.addTextChangedListener(new TextWatcher() {
+        mBinder.signUpTvSignPasswordCheck.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
@@ -46,17 +46,17 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
             //todo : 비밀번호 일치/비일치 여부 갱신 느림
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                text_password = mBinder.txtSignPassword.getText().toString();
-                text_password_ck = mBinder.txtSignPasswordCheck.getText().toString();
+                text_password = mBinder.signUpTvSignPassword.getText().toString();
+                text_password_ck = mBinder.signUpTvSignPasswordCheck.getText().toString();
 
                 if (text_password_ck.length() == 0 || text_password.length() == 0)
-                    mBinder.txtSignPwState.setVisibility(View.INVISIBLE);
+                    mBinder.signUpTvSignPwState.setVisibility(View.INVISIBLE);
 
                 if (text_password.equals(text_password_ck)) {
-                    mBinder.txtSignPwState.setText("비밀번호가 일치합니다");
-                    mBinder.txtSignPwState.setVisibility(View.VISIBLE);
+                    mBinder.signUpTvSignPwState.setText("비밀번호가 일치합니다");
+                    mBinder.signUpTvSignPwState.setVisibility(View.VISIBLE);
                 } else {
-                    mBinder.txtSignPwState.setText("비밀번호가 일치하지 않습니다.");
+                    mBinder.signUpTvSignPwState.setText("비밀번호가 일치하지 않습니다.");
                 }
             }
 
@@ -69,21 +69,21 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
     @Override
     public void onClick(View v) {
         int viewId = v.getId();
-        if (viewId == R.id.btn_sign_up) {
+        if (viewId == R.id.sign_up_btn_sign_up) {
             signUp();
-        } else if (viewId == R.id.btn_phone_auth_start) {
+        } else if (viewId == R.id.sign_up_btn_phone_auth_start) {
             phoneAuthNumber();
         }
     }
 
     private void signUp() {
         //입력 정보 가져오기
-        String email = mBinder.txtSignEmail.getText().toString();
-        String password = mBinder.txtSignPassword.getText().toString();
-        String passwordCheck = mBinder.txtSignPasswordCheck.getText().toString();
+        String email = mBinder.signUpTvSignEmail.getText().toString();
+        String password = mBinder.signUpTvSignPassword.getText().toString();
+        String passwordCheck = mBinder.signUpTvSignPasswordCheck.getText().toString();
         String uid = mFirebaseAuth.getCurrentUser().getUid();
-        String name = mBinder.txtSignName.getText().toString();
-        String phone = mBinder.txtSignPhone.getText().toString();
+        String name = mBinder.signUpTvSignName.getText().toString();
+        String phone = mBinder.signUpTvSignPhone.getText().toString();
 
 
         //todo : 다이얼로그로 변경, 튕기는 현상 수정 필요
@@ -104,7 +104,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
             Toast.makeText(SignUpActivity.this, "비밀번호 확인을 입력해주세요.", Toast.LENGTH_SHORT).show();
         }
 
-        if (!mBinder.checkboxSignAgree.isChecked()) {
+        if (!mBinder.signUpCheckboxSignAgree.isChecked()) {
             Toast.makeText(SignUpActivity.this, "약관 동의가 필요합니다.", Toast.LENGTH_SHORT).show();
         }
 
@@ -147,7 +147,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
                                 .name(name)
                                 .password(password)
                                 .phone(phone)
-                                .agree(mBinder.checkboxSignAgree.isChecked())
+                                .agree(mBinder.signUpCheckboxSignAgree.isChecked())
                                 .build();
 
                         mFirebaseStore.collection("ProtectPetApp").document().collection("OwnerInfo").document(uid).set(owner);

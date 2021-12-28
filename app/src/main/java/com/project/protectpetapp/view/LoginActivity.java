@@ -24,23 +24,23 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
     @Override
     protected void initView(Bundle savedInstanceState) {
 
-        mBinder.btnSign.setOnClickListener(this);
-        mBinder.btnLogin.setOnClickListener(this);
-        mBinder.btnSearchPw.setOnClickListener(this);
+        mBinder.loginBtnSignUp.setOnClickListener(this);
+        mBinder.loginBtnLogin.setOnClickListener(this);
+        mBinder.loginBtnSearchPassword.setOnClickListener(this);
 
-        mBinder.editPassword.addTextChangedListener(new TextWatcher() {
+        mBinder.loginEditPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (mBinder.editEmail.length() > 0) {
-                    mBinder.btnLogin.setEnabled(true);
-                    mBinder.btnLogin.setBackgroundResource(R.drawable.btn_abled_bg);
+                if (mBinder.loginEditEmail.length() > 0) {
+                    mBinder.loginBtnLogin.setEnabled(true);
+                    mBinder.loginBtnLogin.setBackgroundResource(R.drawable.btn_abled_bg);
                 } else {
-                    mBinder.btnLogin.setEnabled(false);
-                    mBinder.btnLogin.setBackgroundResource(R.drawable.btn_enabled_bg);
+                    mBinder.loginBtnLogin.setEnabled(false);
+                    mBinder.loginBtnLogin.setBackgroundResource(R.drawable.btn_enabled_bg);
                 }
             }
 
@@ -55,12 +55,12 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
     public void onClick(View v) {
         int viewId = v.getId();
 
-        if (viewId == R.id.btn_sign) {
+        if (viewId == R.id.login_btn_sign_up) {
             Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
             startActivity(intent);
-        } else if (viewId == R.id.btn_login) {
-            final String email = mBinder.editEmail.getText().toString();
-            final String password = mBinder.editPassword.getText().toString();
+        } else if (viewId == R.id.login_btn_login) {
+            final String email = mBinder.loginEditEmail.getText().toString();
+            final String password = mBinder.loginEditPassword.getText().toString();
             count++;
             if (count < 3) {
                 mFirebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, task -> {
@@ -70,7 +70,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
                         Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
 
                         //자동로그인 체크여부
-                        if (mBinder.autoLogin.isChecked()) {
+                        if (mBinder.loginCheckboxAutoLogin.isChecked()) {
                         }
 
                         finish();
@@ -87,7 +87,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
                 alertDialog.show();
                 count = 0;
             }
-        } else if (viewId == R.id.btn_search_pw) {
+        } else if (viewId == R.id.login_btn_search_password) {
             //비밀번호 찾기 창 띄우기
             AlertDialog.Builder mBuilder = new AlertDialog.Builder(LoginActivity.this);
             View mView = getLayoutInflater().inflate(R.layout.item_pw_search, null);

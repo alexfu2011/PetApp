@@ -35,8 +35,8 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
             setToolbar("고양이 등록");
         }
 
-        mBinder.tvPetBirth.setOnClickListener(this);
-        mBinder.tvPetBreed.setOnClickListener(this);
+        mBinder.registerPetTvPetBirth.setOnClickListener(this);
+        mBinder.registerPetTvPetBreed.setOnClickListener(this);
         mBinder.layoutParent.setOnClickListener(this);
     }
 
@@ -45,7 +45,7 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
     @Override
     public void onClick(View v) {
         int viewId = v.getId();
-        if (viewId == R.id.tv_pet_birth) {
+        if (viewId == R.id.register_pet_tv_pet_birth) {
 
             View view = getLayoutInflater().inflate(R.layout.item_datepiker_spinner, null);
             datePicker = view.findViewById(R.id.date_picker);
@@ -65,7 +65,7 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
             btnCancel.setOnClickListener(v1 -> {
                 dialog.dismiss();
             });
-        } else if (viewId == R.id.tv_pet_breed) {
+        } else if (viewId == R.id.register_pet_tv_pet_breed) {
             MyBottomSheetDialog myBottomSheetDialog = new MyBottomSheetDialog();
             myBottomSheetDialog.show(getSupportFragmentManager(), "myBottomSheetDialog");
         }
@@ -79,6 +79,6 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
         int day = this.datePicker.getDayOfMonth();
 
         int age = (calendar.get(Calendar.YEAR)) - year + 1;
-        mBinder.tvPetBirth.setText(year + "-" + (month + 1) + "-" + day + " (" + age + "살)");
+        mBinder.registerPetTvPetBirth.setText(year + "-" + (month + 1) + "-" + day + " (" + age + "살)");
     }
 }

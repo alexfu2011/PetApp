@@ -27,8 +27,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         Fragment fragment_profile = new ProfileFragment();
         Fragment fragment_veccine_check = new VeccineCheckFragment();
 
-        mBinder.bottomNaviBar.setSelectedItemId(R.id.action_home);
-        mBinder.bottomNaviBar.setOnNavigationItemSelectedListener(item -> {
+        mBinder.mainBottomNavigationBar.setSelectedItemId(R.id.action_home);
+        mBinder.mainBottomNavigationBar.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.action_home:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment_home).commit();
