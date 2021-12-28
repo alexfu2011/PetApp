@@ -1,5 +1,16 @@
 package com.project.protectpetapp.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Inoculation {
     public String inoId; //접종id
     public String name; // 접종명
