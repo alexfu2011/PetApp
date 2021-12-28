@@ -1,13 +1,15 @@
 package com.project.protectpetapp.view;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.project.protectpetapp.DialogClickListener;
+import com.project.protectpetapp.OptionDialog;
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivitySignUpBinding;
 import com.project.protectpetapp.model.Owner;
@@ -111,9 +113,25 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
             Toast.makeText(SignUpActivity.this, "비밀번호가 틀렸습니다.\n 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
         }
 
-        final ProgressDialog mDialog = new ProgressDialog(SignUpActivity.this);
-        mDialog.setMessage("가입중입니다...");
-        mDialog.show();
+        OptionDialog optionDialog = new OptionDialog(this, new DialogClickListener() {
+            @Override
+            public void onPositiveClick() {
+
+            }
+
+            @Override
+            public void onNegativeClick() {
+
+            }
+        });
+
+        optionDialog.setCanceledOnTouchOutside(true);
+        optionDialog.setCancelable(true);
+        optionDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+        optionDialog.show();
+//        final ProgressDialog mDialog = new ProgressDialog(SignUpActivity.this);
+//        mDialog.setMessage("가입중입니다...");
+//        mDialog.show();
 
         //todo : 전화번호 일치 여부 확인
         //todo : 비밀번호 6자리 이상 입력 필요
@@ -122,7 +140,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
         mFirebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(SignUpActivity.this, task -> {
                     if (task.isSuccessful()) {
-                        mDialog.dismiss();
+//                        optionDialog.dismiss();
                         Owner owner = Owner.builder()
                                 .oid(uid)
                                 .email(email)
@@ -139,17 +157,17 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
                         finish();
                         Toast.makeText(SignUpActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
                     } else {
-                        mDialog.dismiss();
-                        if (!email.contains("@")) {
-                            mDialog.setMessage("잘못된 이메일 형식입니다.");
-                            mDialog.show();
-                        } else if (password.length() < 6) {
-                            mDialog.setMessage("잘못된 비밀번호 형식입니다.");
-                            mDialog.show();
-                        } else {
-                            mDialog.setMessage("이미 존재하는 이메일입니다.");
-                            mDialog.show();
-                        }
+//                        optionDialog.dismiss();
+//                        if (!email.contains("@")) {
+//                            mDialog.setMessage("잘못된 이메일 형식입니다.");
+//                            mDialog.show();
+//                        } else if (password.length() < 6) {
+//                            mDialog.setMessage("잘못된 비밀번호 형식입니다.");
+//                            mDialog.show();
+//                        } else {
+//                            mDialog.setMessage("이미 존재하는 이메일입니다.");
+//                            mDialog.show();
+//                        }
                     }
 
                 });
