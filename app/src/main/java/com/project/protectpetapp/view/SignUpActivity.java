@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.project.protectpetapp.DialogClickListener;
 import com.project.protectpetapp.OptionDialog;
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivitySignUpBinding;
@@ -113,18 +112,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
             Toast.makeText(SignUpActivity.this, "비밀번호가 틀렸습니다.\n 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
         }
 
-        OptionDialog optionDialog = new OptionDialog(this, new DialogClickListener() {
-            @Override
-            public void onPositiveClick() {
-
-            }
-
-            @Override
-            public void onNegativeClick() {
-
-            }
-        });
-
+        OptionDialog optionDialog = new OptionDialog(this, "알림", "알림입니다.");
         optionDialog.setCanceledOnTouchOutside(true);
         optionDialog.setCancelable(true);
         optionDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
