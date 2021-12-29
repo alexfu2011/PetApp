@@ -95,7 +95,6 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
                 Log.e("Hash key", something);
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             Log.e("name not found", e.toString());
         }
     }

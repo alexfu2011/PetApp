@@ -19,17 +19,17 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> implem
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        mBinder.btnRegisterPet.setOnClickListener(this);
+        mBinder.fragmentProfileBtnRegisterPet.setOnClickListener(this);
         mBinder.getRoot();
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btn_register_pet) {
+        if (v.getId() == R.id.fragment_profile_btn_register_pet) {
             View view = getLayoutInflater().inflate(R.layout.item_pet_select_dialog, null);
 
-            LinearLayout btnSelectDog = view.findViewById(R.id.btn_select_dog);
-            LinearLayout btnSelectCat = view.findViewById(R.id.btn_select_cat);
+            LinearLayout btnSelectDog = view.findViewById(R.id.item_pet_select_btn_select_dog);
+            LinearLayout btnSelectCat = view.findViewById(R.id.item_pet_select_btn_select_cat);
 
             AlertDialog.Builder petSelectDialog = new AlertDialog.Builder(getActivity());
             AlertDialog dialog = petSelectDialog.create();
