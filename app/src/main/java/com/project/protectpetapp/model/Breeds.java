@@ -12,6 +12,5 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Breeds {
-    private String bzIdx;
     private String breeze;
 }
