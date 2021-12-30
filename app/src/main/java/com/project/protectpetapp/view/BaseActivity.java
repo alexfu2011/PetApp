@@ -51,29 +51,6 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
 
         View view = findViewById(R.id.btn_back);
         if (view != null) view.setOnClickListener(v -> onBackPressed());
-
-        View view1 = findViewById(R.id.btn_confirm);
-        view1.setVisibility(View.GONE);
-    }
-
-    protected void visibleBack() {
-        Object object = findViewById(R.id.toolbar);
-        if (object == null) return;
-
-        View view = findViewById(R.id.btn_back);
-        view.setVisibility(View.GONE);
-        View view1 = findViewById(R.id.btn_confirm);
-        view1.setVisibility(View.GONE);
-    }
-
-    protected void visibleConfirm() {
-        Object object = findViewById(R.id.toolbar);
-        if (object == null) return;
-
-        View view = findViewById(R.id.btn_back);
-        if (view != null) view.setOnClickListener(v -> onBackPressed());
-
-        View view1 = findViewById(R.id.btn_confirm);
     }
 
     protected void setToolbar(String title) {
