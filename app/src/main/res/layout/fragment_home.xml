@@ -6,16 +6,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
         tools:context=".view.fragment.HomeFragment">
 
         <TextView
             android:id="@+id/fragment_home_tv_home_news_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
+            android:padding="10dp"
             android:text="댕댕뉴스"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/fragment_home_layout_home_news"
             app:layout_constraintHorizontal_bias="0.0"
