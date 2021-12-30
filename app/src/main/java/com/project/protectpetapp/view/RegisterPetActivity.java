@@ -20,6 +20,7 @@ import java.util.Calendar;
 public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding> implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
     private DatePicker datePicker;
+    String mode;
 
     public RegisterPetActivity() {
         super(R.layout.activity_register_pet);
@@ -28,7 +29,7 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
     @Override
     protected void initView(Bundle savedInstanceState) {
         initToolbar();
-        String mode = getIntent().getStringExtra("mode");
+        mode = getIntent().getStringExtra("mode");
         assert mode != null;
         if (mode.equals("dog")) {
             setToolbar("강아지 등록");
@@ -68,7 +69,7 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
                 dialog.dismiss();
             });
         } else if (viewId == R.id.register_pet_tv_pet_breeds) {
-            MyBottomSheetDialog myBottomSheetDialog = new MyBottomSheetDialog(this);
+            MyBottomSheetDialog myBottomSheetDialog = new MyBottomSheetDialog(this, mode);
             myBottomSheetDialog.show(getSupportFragmentManager(), "myBottomSheetDialog");
         }
     }
