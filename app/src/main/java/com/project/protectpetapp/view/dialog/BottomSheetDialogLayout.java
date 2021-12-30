@@ -1,4 +1,4 @@
-package com.project.protectpetapp.view;
+package com.project.protectpetapp.view.dialog;
 
 import android.content.Context;
 import android.os.Bundle;
