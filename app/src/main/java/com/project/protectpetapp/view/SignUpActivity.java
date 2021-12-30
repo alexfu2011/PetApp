@@ -24,7 +24,7 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
     @Override
     protected void initView(Bundle savedInstanceState) {
         initToolbar();
-        setToolbar("회원가입");
+        setToolbar("");
 
         passwordTextChangedCheck();
 
@@ -102,10 +102,6 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
             Toast.makeText(SignUpActivity.this, "비밀번호 확인을 입력해주세요.", Toast.LENGTH_SHORT).show();
         }
 
-        if (!mBinder.signUpCheckboxSignAgree.isChecked()) {
-            Toast.makeText(SignUpActivity.this, "약관 동의가 필요합니다.", Toast.LENGTH_SHORT).show();
-        }
-
         if (!password.equals(passwordCheck)) {
             //비밀번호 오류시
             Toast.makeText(SignUpActivity.this, "비밀번호가 틀렸습니다.\n 다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
@@ -128,7 +124,6 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
                                 .name(name)
                                 .password(password)
                                 .phone(phone)
-                                .agree(mBinder.signUpCheckboxSignAgree.isChecked())
                                 .build();
 
                         mFirebaseStore.collection("ProtectPetApp").document().collection("OwnerInfo").document(uid).set(owner);
