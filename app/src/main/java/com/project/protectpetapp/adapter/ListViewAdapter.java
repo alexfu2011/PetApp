@@ -29,7 +29,7 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return position;
+        return datas.get(position);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class ListViewAdapter extends BaseAdapter {
         convertView = inflater.inflate(R.layout.item_breed, null);
 
         TextView breeds = convertView.findViewById(R.id.item_breeds_tv_breeds);
-        breeds.setText(datas.get(position).getBreeze());
+        breeds.setText(datas.get(position).getBreeds());
 
         return convertView;
     }

@@ -119,14 +119,15 @@ public class SignUpActivity extends BaseActivity<ActivitySignUpBinding> implemen
                 .addOnCompleteListener(SignUpActivity.this, task -> {
                     if (task.isSuccessful()) {
                         Owner owner = Owner.builder()
-                                .oid(uid)
+                                .oid(mFirebaseAuth.getCurrentUser().getUid())
                                 .email(email)
                                 .name(name)
                                 .password(password)
                                 .phone(phone)
                                 .build();
 
-                        mFirebaseStore.collection("ProtectPetApp").document().collection("OwnerInfo").document(uid).set(owner);
+                        //todo : 파이어베이스 uid 이전 값 들어가는 것 수정 필요
+                        mFirebaseStore.collection("ProtectPetApp").document(mFirebaseAuth.getUid()).collection("OwnerInfo").document(mFirebaseAuth.getUid()).set(owner);
 
                         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                         startActivity(intent);

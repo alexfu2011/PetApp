@@ -13,6 +13,8 @@ import androidx.annotation.RequiresApi;
 
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivityRegisterPetBinding;
+import com.project.protectpetapp.model.Pet;
+import com.project.protectpetapp.view.dialog.BottomSheetDialogLayout;
 import com.project.protectpetapp.view.dialog.MyBottomSheetDialog;
 
 import java.util.Calendar;
@@ -21,6 +23,7 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
 
     private DatePicker datePicker;
     String mode;
+    String radioGender = "여아";
 
     public RegisterPetActivity() {
         super(R.layout.activity_register_pet);
@@ -39,7 +42,8 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
 
         mBinder.registerPetTvPetBirth.setOnClickListener(this);
         mBinder.registerPetTvPetBreeds.setOnClickListener(this);
-        mBinder.layoutParent.setOnClickListener(this);
+        mBinder.registerPetBtnConfirm.setOnClickListener(this);
+
         mBinder.registerPetRbGender.setOnCheckedChangeListener(this);
     }
 
@@ -71,6 +75,26 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
         } else if (viewId == R.id.register_pet_tv_pet_breeds) {
             MyBottomSheetDialog myBottomSheetDialog = new MyBottomSheetDialog(this, mode);
             myBottomSheetDialog.show(getSupportFragmentManager(), "myBottomSheetDialog");
+            myBottomSheetDialog.setDialogListener(breeds -> mBinder.registerPetTvPetBreeds.setText(breeds));
+        } else if (viewId == R.id.register_pet_btn_confirm) {
+            String petId = mBinder.registerPetEditPetNumber.getText().toString();
+            String name = mBinder.registerPetEditPetName.getText().toString();
+            String breeds = mBinder.registerPetTvPetBreeds.getText().toString();
+            String birth = mBinder.registerPetTvPetBirth.getText().toString();
+            String gender = radioGender;
+
+            Pet pet = Pet.builder()
+                    .petId(petId)
+                    .name(name)
+                    .breeds(breeds)
+                    .birth(birth)
+                    .gender(gender)
+                    .mode(mode)
+                    .build();
+
+            mFirebaseStore.collection("ProtectPetApp").document(mFirebaseAuth.getUid()).collection("Pet").document(name).set(pet);
+            BottomSheetDialogLayout bottomSheetDialogLayout = new BottomSheetDialogLayout(this, "등록이 완료되었습니다.");
+            bottomSheetDialogLayout.show(getSupportFragmentManager(), "bottomSheetDialogLayout");
         }
     }
 
@@ -90,9 +114,11 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
         if (checkedId == R.id.register_pet_rb_gender_female) {
             mBinder.registerPetRbGenderFemale.setBackgroundResource(R.drawable.toggle_border_bg_primary);
             mBinder.registerPetRbGenderMale.setBackgroundResource(0);
+            radioGender = "여아";
         } else if (checkedId == R.id.register_pet_rb_gender_male) {
             mBinder.registerPetRbGenderFemale.setBackgroundResource(0);
             mBinder.registerPetRbGenderMale.setBackgroundResource(R.drawable.toggle_border_bg_primary);
+            radioGender = "남아";
         }
     }
 }

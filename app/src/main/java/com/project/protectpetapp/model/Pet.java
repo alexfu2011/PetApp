@@ -15,8 +15,10 @@ public class Pet {
     public String petId;
     public String name;
     public String birth;
-    public String breed;
+    public String breeds;
     public String gender;
+    public String mode;
 
+    public String oId; //주인id FK
 
 }
