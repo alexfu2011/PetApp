@@ -6,17 +6,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
-import com.project.protectpetapp.MyBottomSheetDialog;
 import com.project.protectpetapp.R;
 import com.project.protectpetapp.databinding.ActivityRegisterPetBinding;
+import com.project.protectpetapp.view.dialog.MyBottomSheetDialog;
 
 import java.util.Calendar;
 
-public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding> implements View.OnClickListener {
+public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding> implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
     private DatePicker datePicker;
 
@@ -26,7 +27,7 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        visibleConfirm();
+        initToolbar();
         String mode = getIntent().getStringExtra("mode");
         assert mode != null;
         if (mode.equals("dog")) {
@@ -36,8 +37,9 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
         }
 
         mBinder.registerPetTvPetBirth.setOnClickListener(this);
-        mBinder.registerPetTvPetBreed.setOnClickListener(this);
+        mBinder.registerPetTvPetBreeds.setOnClickListener(this);
         mBinder.layoutParent.setOnClickListener(this);
+        mBinder.registerPetRbGender.setOnCheckedChangeListener(this);
     }
 
     @SuppressLint("SetTextI18n")
@@ -65,8 +67,8 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
             btnCancel.setOnClickListener(v1 -> {
                 dialog.dismiss();
             });
-        } else if (viewId == R.id.register_pet_tv_pet_breed) {
-            MyBottomSheetDialog myBottomSheetDialog = new MyBottomSheetDialog();
+        } else if (viewId == R.id.register_pet_tv_pet_breeds) {
+            MyBottomSheetDialog myBottomSheetDialog = new MyBottomSheetDialog(this);
             myBottomSheetDialog.show(getSupportFragmentManager(), "myBottomSheetDialog");
         }
     }
@@ -80,5 +82,16 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
 
         int age = (calendar.get(Calendar.YEAR)) - year + 1;
         mBinder.registerPetTvPetBirth.setText(year + "-" + (month + 1) + "-" + day + " (" + age + "살)");
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if (checkedId == R.id.register_pet_rb_gender_female) {
+            mBinder.registerPetRbGenderFemale.setBackgroundResource(R.drawable.toggle_border_bg_primary);
+            mBinder.registerPetRbGenderMale.setBackgroundResource(0);
+        } else if (checkedId == R.id.register_pet_rb_gender_male) {
+            mBinder.registerPetRbGenderFemale.setBackgroundResource(0);
+            mBinder.registerPetRbGenderMale.setBackgroundResource(R.drawable.toggle_border_bg_primary);
+        }
     }
 }
