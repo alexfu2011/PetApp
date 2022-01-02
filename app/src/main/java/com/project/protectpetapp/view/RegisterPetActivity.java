@@ -90,6 +90,7 @@ public class RegisterPetActivity extends BaseActivity<ActivityRegisterPetBinding
                     .birth(birth)
                     .gender(gender)
                     .mode(mode)
+                    .oId(mFirebaseAuth.getCurrentUser().getUid())
                     .build();
 
             mFirebaseStore.collection("ProtectPetApp").document(mFirebaseAuth.getUid()).collection("Pet").document(name).set(pet);

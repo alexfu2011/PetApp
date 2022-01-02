@@ -77,4 +77,9 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatA
     }
 
     protected abstract void initView(Bundle savedInstanceState);
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }
