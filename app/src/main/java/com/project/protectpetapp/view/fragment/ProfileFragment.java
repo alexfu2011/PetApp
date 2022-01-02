@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.project.protectpetapp.R;
+import com.project.protectpetapp.adapter.ProfileRecyclerViewAdapter;
 import com.project.protectpetapp.databinding.FragmentProfileBinding;
 import com.project.protectpetapp.model.Pet;
 import com.project.protectpetapp.view.RegisterPetActivity;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 
 public class ProfileFragment extends BaseFragment<FragmentProfileBinding> implements View.OnClickListener {
     ArrayList<Pet> petArrayList = new ArrayList<>();
+    private ProfileRecyclerViewAdapter adapter;
 
 
     public ProfileFragment() {
@@ -41,7 +43,12 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> implem
             mBinder.fragmentProfileBtnRegisterPet.setVisibility(View.VISIBLE);
         } else {
             mBinder.fragmentProfileBtnRegisterPet.setVisibility(View.GONE);
+            registeredPet();
         }
+    }
+
+    private void registeredPet() {
+
     }
 
     public void notRegisterIsPet() {
