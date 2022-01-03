@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/text_bg"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/item_profile_tv_pet1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="동물번호"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_profile_tv_pet_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="1234"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/item_profile_tv_pet1"
+        app:layout_constraintLeft_toRightOf="@id/item_profile_tv_pet1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_profile_tv_pet2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="이름"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintRight_toRightOf="@id/item_profile_tv_pet1"
+        app:layout_constraintTop_toBottomOf="@id/item_profile_tv_pet1" />
+
+    <TextView
+        android:id="@+id/item_profile_tv_pet_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="심새치"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/item_profile_tv_pet2"
+        app:layout_constraintLeft_toRightOf="@id/item_profile_tv_pet2"
+        app:layout_constraintTop_toTopOf="@+id/item_profile_tv_pet2" />
+
+    <TextView
+        android:id="@+id/item_profile_tv_pet3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="생년월일"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_profile_tv_pet2" />
+
+    <TextView
+        android:id="@+id/item_profile_tv_pet_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="2018-05-09 (3살)"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/item_profile_tv_pet3"
+        app:layout_constraintLeft_toRightOf="@id/item_profile_tv_pet3"
+        app:layout_constraintTop_toTopOf="@+id/item_profile_tv_pet3" />
+
+    <TextView
+        android:id="@+id/item_profile_tv_pet4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="품종"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintRight_toRightOf="@id/item_profile_tv_pet3"
+        app:layout_constraintTop_toBottomOf="@id/item_profile_tv_pet3" />
+
+    <TextView
+        android:id="@+id/item_profile_tv_pet_breeds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="요크셔테리어"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@id/item_profile_tv_pet4"
+        app:layout_constraintLeft_toRightOf="@id/item_profile_tv_pet4"
+        app:layout_constraintTop_toTopOf="@+id/item_profile_tv_pet4" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

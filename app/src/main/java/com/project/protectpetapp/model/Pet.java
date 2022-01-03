@@ -18,7 +18,4 @@ public class Pet {
     public String breeds;
     public String gender;
     public String mode;
-
-    public String oId; //주인id FK
-
 }
