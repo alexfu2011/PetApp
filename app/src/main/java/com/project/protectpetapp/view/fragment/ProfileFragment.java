@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -30,25 +32,30 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> implem
     protected void initView(Bundle savedInstanceState) {
         mBinder.fragmentProfileBtnRegisterPet.setOnClickListener(this);
         mBinder.getRoot();
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        firestore.collection("ProtectPetApp").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("Pet")
+        FirebaseFirestore fireStore = FirebaseFirestore.getInstance();
+        fireStore.collection("ProtectPetApp").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .collection("Pet")
                 .addSnapshotListener(((value, error) -> {
                     petArrayList.clear();
-
                     for (QueryDocumentSnapshot doc : value) {
                         petArrayList.add(doc.toObject(Pet.class));
                     }
                 }));
         if (petArrayList.size() == 0) {
             mBinder.fragmentProfileBtnRegisterPet.setVisibility(View.VISIBLE);
-        } else {
+            mBinder.fragmentProfileRvPetList.setVisibility(View.GONE);
+        } else if (petArrayList.size() > 0) {
             mBinder.fragmentProfileBtnRegisterPet.setVisibility(View.GONE);
-            registeredPet();
+            mBinder.fragmentProfileRvPetList.setVisibility(View.VISIBLE);
+            registeredPet(petArrayList);
         }
     }
 
-    private void registeredPet() {
-
+    private void registeredPet(ArrayList<Pet> petArrayList) {
+        this.petArrayList = petArrayList;
+        adapter = new ProfileRecyclerViewAdapter(this.petArrayList, getActivity());
+        mBinder.fragmentProfileRvPetList.setAdapter(adapter);
+        mBinder.fragmentProfileRvPetList.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 
     public void notRegisterIsPet() {
