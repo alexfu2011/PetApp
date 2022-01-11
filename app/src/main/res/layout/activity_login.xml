@@ -31,19 +31,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="로그인"
                 android:textColor="#2E2E2E"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/login_tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="이메일"
                 android:textColor="#2E2E2E"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/login_edit_email"
@@ -51,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="#A3A3A3"
+                android:fontFamily="@font/hsvillige"
                 android:inputType="textEmailAddress" />
 
             <TextView
@@ -59,9 +61,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="비밀번호"
                 android:textColor="#2E2E2E"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/login_edit_password"
@@ -69,6 +72,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="#A3A3A3"
+                android:textColor="@color/black"
+                android:fontFamily="@font/hsvillige"
                 android:inputType="textPassword" />
 
             <androidx.appcompat.widget.AppCompatCheckBox
@@ -76,6 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="자동 로그인"
                 android:textColor="#585858" />
 
@@ -86,9 +92,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="#00ff0000"
+                android:fontFamily="@font/hsvillige"
                 android:gravity="center"
                 android:text="비밀번호를 잊으셨나요?"
-                android:textColor="#585858" />
+                android:textColor="#585858"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/login_btn_login"
@@ -98,8 +106,10 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_enabled_bg"
                 android:enabled="false"
+                android:fontFamily="@font/hsvillige"
                 android:gravity="center"
-                android:text="로그인" />
+                android:text="로그인"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/login_btn_sign_up"
@@ -108,8 +118,10 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/btn_shadow_white"
+                android:fontFamily="@font/hsvillige"
                 android:gravity="center"
-                android:text="회원가입" />
+                android:text="회원가입"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

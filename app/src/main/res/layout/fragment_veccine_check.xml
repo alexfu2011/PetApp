@@ -97,8 +97,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/hsvillige"
                 android:text="등록된 반려동물이 없습니다. \n 반려동물을 등록해주세요."
                 android:textAlignment="center"
+                android:textSize="20sp"
                 tools:ignore="RtlCompat" />
         </LinearLayout>
 

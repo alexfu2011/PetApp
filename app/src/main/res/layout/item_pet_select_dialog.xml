@@ -12,6 +12,7 @@
             android:id="@+id/item_pet_select_tv_dialog_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/hsvillige"
             android:gravity="center"
             android:padding="5dp"
             android:text="동물 선택"
@@ -53,6 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/hsvillige"
                     android:text="개"
                     android:textColor="@color/black"
                     tools:ignore="HardcodedText" />
@@ -76,6 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/hsvillige"
                     android:text="고양이"
                     android:textColor="@color/black"
                     tools:ignore="HardcodedText" />

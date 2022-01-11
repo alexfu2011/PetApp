@@ -5,6 +5,7 @@
     <item
         android:id="@+id/action_home"
         android:enabled="true"
+        android:fontFamily="@font/hsvillige"
         android:icon="@drawable/ic_home"
         android:title="홈"
         tools:ignore="HardcodedText" />
@@ -12,6 +13,7 @@
     <item
         android:id="@+id/action_veccine_check"
         android:enabled="true"
+        android:fontFamily="@font/hsvillige"
         android:icon="@drawable/ic_list"
         android:title="접종리스트"
         tools:ignore="HardcodedText" />
@@ -19,6 +21,7 @@
     <item
         android:id="@+id/action_profile"
         android:enabled="true"
+        android:fontFamily="@font/hsvillige"
         android:icon="@drawable/ic_profile"
         android:title="프로필"
         tools:ignore="HardcodedText" />

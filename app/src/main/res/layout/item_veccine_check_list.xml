@@ -18,9 +18,11 @@
         android:id="@+id/item_veccine_check_list_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/hsvillige"
         android:padding="10dp"
         android:text="안녕"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/item_veccine_check_list_icon"
         app:layout_constraintTop_toTopOf="parent" />

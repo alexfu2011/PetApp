@@ -13,9 +13,9 @@
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:text="품종"
+        android:fontFamily="@font/hsvillige"
         android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 

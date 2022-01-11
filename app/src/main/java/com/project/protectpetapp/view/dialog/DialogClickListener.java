@@ -1,4 +1,4 @@
-package com.project.protectpetapp;
+package com.project.protectpetapp.view.dialog;
 
 public interface DialogClickListener {
     void onPositiveClick();

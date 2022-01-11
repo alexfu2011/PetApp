@@ -29,10 +29,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="50dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="입력한 정보가 맞다면\n아래 확인 버튼을 눌러주세요."
                 android:textColor="#2E2E2E"
-                android:textSize="22dp"
-                android:textStyle="bold"
+                android:textSize="24dp"
                 tools:ignore="HardcodedText,SpUsage" />
 
             <TextView
@@ -40,9 +40,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="이름"
                 android:textColor="#2E2E2E"
-                android:textStyle="bold"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText" />
 
             <EditText
@@ -51,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/colorEnabled"
+                android:fontFamily="@font/hsvillige"
                 tools:targetApi="lollipop" />
 
             <LinearLayout
@@ -63,9 +65,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:layout_marginLeft="3dp"
+                    android:fontFamily="@font/hsvillige"
                     android:text="전화번호"
                     android:textColor="#2E2E2E"
-                    android:textStyle="bold"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText" />
 
                 <LinearLayout
@@ -80,6 +83,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="3"
                         android:backgroundTint="@color/colorEnabled"
+                        android:fontFamily="@font/hsvillige"
                         android:inputType="number"
                         tools:targetApi="lollipop" />
 
@@ -88,7 +92,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="인증" />
+                        android:fontFamily="@font/hsvillige"
+                        android:text="인증"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -107,9 +113,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:layout_marginLeft="3dp"
+                    android:fontFamily="@font/hsvillige"
                     android:text="인증번호"
                     android:textColor="#2E2E2E"
-                    android:textStyle="bold"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText" />
 
                 <LinearLayout
@@ -132,6 +139,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/hsvillige"
                         android:text="인증완료" />
 
                 </LinearLayout>
@@ -146,9 +154,10 @@
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="이메일"
                 android:textColor="#2E2E2E"
-                android:textStyle="bold"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText" />
 
             <EditText
@@ -157,6 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/colorEnabled"
+                android:fontFamily="@font/hsvillige"
                 android:inputType="textEmailAddress"
                 tools:targetApi="lollipop" />
 
@@ -167,9 +177,10 @@
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="비밀번호"
                 android:textColor="#2E2E2E"
-                android:textStyle="bold"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText" />
 
             <EditText
@@ -178,6 +189,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/colorEnabled"
+                android:fontFamily="@font/hsvillige"
                 android:inputType="textPassword"
                 tools:targetApi="lollipop" />
 
@@ -187,9 +199,10 @@
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="비밀번호 확인"
                 android:textColor="#2E2E2E"
-                android:textStyle="bold"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText" />
 
             <EditText
@@ -198,6 +211,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/colorEnabled"
+                android:fontFamily="@font/hsvillige"
                 android:inputType="textPassword"
                 android:textSize="20dp"
                 tools:ignore="SpUsage"
@@ -209,8 +223,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
                 android:layout_marginLeft="3dp"
+                android:fontFamily="@font/hsvillige"
                 android:text="비밀번호가 일치하지 않습니다"
-                android:textColor="#2352FF"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
 
@@ -221,9 +236,11 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@drawable/btn_abled_bg"
+            android:fontFamily="@font/hsvillige"
             android:gravity="center"
             android:text="회원가입"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
