@@ -42,10 +42,8 @@ public class ProfileFragment extends BaseFragment<FragmentProfileBinding> implem
                     }
                 }));
         if (petArrayList.size() == 0) {
-            mBinder.fragmentProfileBtnRegisterPet.setVisibility(View.VISIBLE);
             mBinder.fragmentProfileRvPetList.setVisibility(View.GONE);
         } else if (petArrayList.size() > 0) {
-            mBinder.fragmentProfileBtnRegisterPet.setVisibility(View.GONE);
             mBinder.fragmentProfileRvPetList.setVisibility(View.VISIBLE);
             registeredPet(petArrayList);
         }

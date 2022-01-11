@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/text_bg"
-    android:padding="20dp">
+    android:paddingLeft="20dp"
+    android:paddingTop="20dp"
+    android:paddingRight="20dp">
 
     <TextView
         android:id="@+id/item_profile_tv_pet1"
@@ -37,9 +39,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/hsvillige"
         android:padding="5dp"
-        android:text="이름"
+        android:text="이     름"
         android:textColor="@color/black"
         android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/item_profile_tv_pet1"
         app:layout_constraintRight_toRightOf="@id/item_profile_tv_pet1"
         app:layout_constraintTop_toBottomOf="@id/item_profile_tv_pet1" />
 
@@ -87,9 +90,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/hsvillige"
         android:padding="5dp"
-        android:text="품종"
+        android:text="품     종"
         android:textColor="@color/black"
         android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/item_profile_tv_pet3"
         app:layout_constraintRight_toRightOf="@id/item_profile_tv_pet3"
         app:layout_constraintTop_toBottomOf="@id/item_profile_tv_pet3" />
 
